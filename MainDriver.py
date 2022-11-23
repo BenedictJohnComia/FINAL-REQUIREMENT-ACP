@@ -5,7 +5,6 @@ from BankSystem import bankSystem
 choiceOfUser = Welcome()
 mainBank = bankSystem()
 
-
 if choiceOfUser == 1: 
     while True:
         try:
