@@ -1,14 +1,14 @@
 def MainMenuAdmin():
-    print("\n\t ADMIN MENU")
-    print("\t[1] Mint Money")
-    print("\t[2] Burn Money")
-    print("\t[3] Open Account")
-    print("\t[4] Loan Assesment")
-    print("\t[5] Access Customer Database")
-    print("\t[6] Access Asset Database")
-    print("\t[7] Exit")
+    print("\nADMIN MENU")
+    print("[1] Mint Money")
+    print("[2] Burn Money")
+    print("[3] Open Account")
+    print("[4] Loan Assesment")
+    print("[5] Access Customer Database")
+    print("[6] Test")
+    print("[7] Exit")
 
-def MainMenuBroker():
+def MainMenuCustomer():
     print("[1] Deposite Money")
     print("[2] Collect Money")
     print("[3] Activity Log")
@@ -16,7 +16,7 @@ def MainMenuBroker():
     print("[5] Exit")
     
 def MainMenuVerifyInfo():
-    print("What information do you want to change?")
+    print("\nWhat information do you want to change?")
     print("[1] First Name")
     print("[2] Last Name")
     print("[3] Age ")
@@ -25,7 +25,9 @@ def MainMenuVerifyInfo():
     print("[6] Username")
     print("[7] Password")
     print("[8] Initial Deposit")
+    print("[9] Exit")
 
-def MainMenuLoanAssessment():
-    print("[1] Create Loan")
-    print("[2] Loan Payment")
+def MainMenuCustomerDatabase():
+    print("\n[1] Display Customer Database")
+    print("[2] Display Information of a specific Customer by ID")
+    print("[3] Exit")

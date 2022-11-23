@@ -1,4 +1,5 @@
-from MainMenuMethods import MainMenuVerifyInfo, MainMenuLoanAssessment
+from MainMenuMethods import MainMenuVerifyInfo, MainMenuCustomerDatabase
+from CustomerInformationInquiry import customerInfo
 import collections
 import json
 
@@ -8,7 +9,7 @@ class bankSystem:
         self.customerDatabase = collections.defaultdict(dict)
         self.jsonToDict()
         self.customerID = int(self.customerNewID()) 
-        self.accountNumber = 69347501
+        self.accountNumber = int(self.customerNewAccNum())
         self.activityLog = []
         self.mintCount = 5
         
@@ -36,29 +37,19 @@ class bankSystem:
 
     def openAccount(self):
         print(f"Enter information for customer {self.customerID}")
-        firstName = str(input("Enter first name: "))
-        lastName = str(input("Enter last name: "))
-        age = int(input("Enter age: "))
-        address = str(input("Enter address: "))
-        pin = int(input("Enter pin: "))
-        username = input("Enter username: ")
-        password = input("Enter password: ")
-        balance = float(input("Enter your initial deposit: "))
-        creditLevel = int(self.creditLevel())
-        creditTier = str(self.creditTierTest(creditLevel))
-        loanLimitAcc = float(self.loanLimit(creditLevel))
-        loan = 0
+        customerObj = customerInfo()
+        customerObj.accountNumber = self.accountNumber
+        customerObj.customerID = self.customerID
+        customerObj.creditLevel = int(self.creditLevel())
+        customerObj.creditTier = str(self.creditTierTest(customerObj.creditLevel))
+        customerObj.loanLimitAcc = float(self.loanLimit(customerObj.creditLevel))
+        customerObj.loan = 0
         
         while True:
             print("\nPlease verify the following information:")
-            print(f"{self.customerID} is {firstName} {lastName}, {age} years old from {address}, has initial deposit amounting to {balance}.")
-            print(f"The pin code of customer {self.customerID} is {pin} that has:")
-            print(f"Account Number : {self.accountNumber}")
-            print(f"Credit Tier: {creditTier}")
-            print(f"Loan Limit: {loanLimitAcc}")
-            print(f"Username: {username}")
-            print(f"Password: {password}\n")
-            print("[1] Yes, that is correct")
+            customerObj.displayInfo()
+            
+            print("[1] Yes, That is correct")
             print("[2] No, I want to change some information")
             choiceVerify = int(input("Enter your choice: "))
             if choiceVerify == 2:
@@ -66,56 +57,112 @@ class bankSystem:
                 while True:
                     choiceChange = int(input("Enter your choice: "))
                     if choiceChange == 1:
-                        firstName = str(input("Enter first name: "))
+                        customerObj.firstName = str(input("Enter first name: "))
                         break
                     elif choiceChange == 2:
-                        lastName = str(input("Enter last name: "))
+                        customerObj.lastName = str(input("Enter last name: "))
                         break
                     elif choiceChange == 3:
-                        age = int(input("Enter age: "))
+                        customerObj. age = int(input("Enter age: "))
                         break
                     elif choiceChange == 4:
-                        address = str(input("Enter address: "))
+                        customerObj.address = str(input("Enter address: "))
                         break
                     elif choiceChange == 5:
-                        pin = int(input("Enter pin: "))
+                        customerObj.pin = int(input("Enter pin: "))
                         break
                     elif choiceChange == 6:
-                        username = input("Enter username: ")
+                        customerObj.username = input("Enter username: ")
                         break
                     elif choiceChange == 7:
-                        password = input("Enter password: ")
+                        customerObj.password = input("Enter password: ")
                         break
                     elif choiceChange == 8:
-                        balance = input("Enter initial deposit: ")
+                        customerObj.balance = input("Enter initial deposit: ")
+                        break
+                    elif choiceChange == 9:
                         break
                     else:
                         print("Invalid Input. Please try again.")
                         
             elif choiceVerify == 1:
                 self.customerDatabase[self.customerID] = {}
-                self.customerDatabase[self.customerID]["First Name:"] = firstName
-                self.customerDatabase[self.customerID]["Last Name:"] = lastName
-                self.customerDatabase[self.customerID]["Age:"] = age
-                self.customerDatabase[self.customerID]["Address:"] = address
-                self.customerDatabase[self.customerID]["Account Numer:"] = self.accountNumber
-                self.customerDatabase[self.customerID]["Pin:"] = pin
-                self.customerDatabase[self.customerID]["Username:"] = username
-                self.customerDatabase[self.customerID]["Password:"] = password
-                self.customerDatabase[self.customerID]["Balance:"] = balance
-                self.customerDatabase[self.customerID]["Credit Level:"] = creditLevel
-                self.customerDatabase[self.customerID]["Loan Limit:"] = loanLimitAcc
-                self.customerDatabase[self.customerID]["Loan:"] = loan
+                self.customerDatabase[self.customerID]["First Name:"] =  customerObj.firstName
+                self.customerDatabase[self.customerID]["Last Name:"] = customerObj.lastName
+                self.customerDatabase[self.customerID]["Age:"] = customerObj.age
+                self.customerDatabase[self.customerID]["Address:"] = customerObj.address
+                self.customerDatabase[self.customerID]["Account Number:"] = customerObj.accountNumber
+                self.customerDatabase[self.customerID]["Pin:"] = customerObj.pin
+                self.customerDatabase[self.customerID]["Username:"] = customerObj.username
+                self.customerDatabase[self.customerID]["Password:"] = customerObj.password
+                self.customerDatabase[self.customerID]["Balance:"] = customerObj.balance
+                self.customerDatabase[self.customerID]["Credit Level:"] = customerObj.creditLevel
+                self.customerDatabase[self.customerID]["Loan Limit:"] = customerObj.loanLimitAcc
+                self.customerDatabase[self.customerID]["Loan:"] = customerObj.loan
                 break
             else:
                 print("Invalid Input. Please try again.")
     
-        self.bankBalance = self.bankBalance + balance
+        self.bankBalance = self.bankBalance + customerObj.balance
         self.customerID = self.customerID + 1
         self.accountNumber = self.accountNumber + 1
-        
         self.addToCustomerJsonFile()
+    
+    def loanAssesment(self):
+        self.jsonToDict()
         
+        choiceCustomer = str(input("Enter ID of customer: "))
+        customerExistence = self.checkCustomerExistence(choiceCustomer)
+        if customerExistence == False: return
+        
+        customerCreditLevel = int(self.customerDatabase[choiceCustomer]["Credit Level:"])
+        customerLoan =  float(self.customerDatabase[choiceCustomer]["Loan:"])
+        customerLoanLimit = float(self.customerDatabase[choiceCustomer]["Loan Limit:"])
+        customerLoanInterestRate = self.customerLoanInterestRate(customerCreditLevel)
+        print(f"Customer {choiceCustomer} currently has a loan amounting to {customerLoan}.")
+        
+        if customerCreditLevel == 1:
+            print(f"Customer {customerCreditLevel} cannot loan in the bank because he/she has no tier.")
+            return
+        else:
+            loanAmount = float(input("How much money will be loaned: "))
+            if loanAmount > customerLoanLimit:
+                print(f"You entered an amount that exceeds the loan limit of Customer {choiceCustomer}")
+            elif loanAmount <= 0:
+                print(f"You entered an invalid amount")
+            else:
+                loanWithInterest = loanAmount + (customerLoanInterestRate * loanAmount)
+                print("\nThe following transactions are made: ")
+                print(f"Loan placed: {loanAmount}")
+                print(f"Loan to be payed (with annual interest): {loanWithInterest}")
+                
+                self.customerDatabase[choiceCustomer]["Loan:"] = float(loanWithInterest)
+                self.addToCustomerJsonFile()
+                
+    def accessCustomerDatabase(self):
+        while True:
+            MainMenuCustomerDatabase()
+            choiceCustomerDatabase = int(input("Enter your choice: "))
+            if choiceCustomerDatabase == 1:
+                self.showCustomerDatabase()
+            elif choiceCustomerDatabase == 2:
+                choiceCustomer = str(input("Enter ID of customer to be searched: "))
+                customerExistence = self.checkCustomerExistence(choiceCustomer)
+                if customerExistence == False: return
+                print("\nCustomer ID:", choiceCustomer)
+                for customerID in self.customerDatabase[choiceCustomer]:
+                    print("   ", customerID, self.customerDatabase[choiceCustomer][customerID])
+            elif choiceCustomerDatabase == 3:
+                break
+            else:
+                print("Invalid Input. Please try again.")
+                    
+    def showCustomerDatabase(self):
+        for CustomerID, CustomerInformation in self.customerDatabase.items():
+            print("Customer ID:", CustomerID)
+            for keyInfo in CustomerInformation:
+                print("   ", keyInfo, CustomerInformation[keyInfo]) 
+                
     def displayTest(self):
         choiceID = str(input("Enter customer ID to be found: "))
         print(self.customerDatabase[choiceID]["Balance:"])
@@ -124,44 +171,33 @@ class bankSystem:
         try:
             with open("Database/CustomerDatabase.json") as customerDatabaseJSON:
                 self.customerDatabase = json.load(customerDatabaseJSON)
+            
+            customerDatabaseJSON.close()
         except:
             self.customerDatabase[1001] = {}
             
-    def customerNewID(self):
-        for dictID in reversed(self.customerDatabase.keys()):
-            if dictID == 1001:
-                return 1001
-            else:
-                newID = int(dictID)
-                return newID + 1
-        
     def addToCustomerJsonFile(self):
         with open("Database/CustomerDatabase.json", "w") as customerJsonFile:
             json.dump(self.customerDatabase, customerJsonFile)
             
         customerJsonFile.close()
         
-    def loanAssesment(self):
-        MainMenuLoanAssessment()
-        choiceLoanAssessment = int(input("Enter your choice: "))
-        if choiceLoanAssessment == 1:
-            choiceCustomer = str(input("Enter ID of customer: "))
-            
-        #prompt, create loan, loan payment
-            #create  loan - choose customer, if tier 1 = bawal loan, if tier 2 and above = pwede mag loan depending sa limit
-                #ask how much iloloan
-                #loan amount + interest anf istostore sa loan vale nya sa dictionary(overwrite)
-                #show aggreement with details on how much loan and how much to pay
-            #loan payment - call customer ID, check if may loan
-                #acces loan, check if 0, no loan
-                #if 1 - may loan
-    
-    def accessCustomerDatabase(self):
-        #show customer database
-        #can search by ID
-        print("No content")
-          
+    def customerNewID(self):
+        if len(self.customerDatabase) - 1 != 0:
+            for dictID in reversed(self.customerDatabase.keys()):
+                newID = int(dictID)
+                return newID + 1
+        else:
+            return 1001
         
+    def customerNewAccNum(self):
+        if len(self.customerDatabase) - 1 != 0:
+             for dictID in reversed(self.customerDatabase.keys()):
+                newAccNum = int(self.customerDatabase[dictID]["Account Number:"])
+                return newAccNum + 1  
+        else:
+            return 69347501   
+            
     def creditLevel(self):
         while True:
             creditScore = int(input("Enter credit score(0-100): "))
@@ -182,29 +218,30 @@ class bankSystem:
             1: "No Tier",
             2: "Bronze Tier",
             3: "Silver Tier",
-            4: "Gold Tier",
+            4: "Gold Tier"
         }
         return tierOfAccount.get(creditLevelTest)
     
     def loanLimit(self, creditLevelTest = 0):
-        if creditLevelTest == 1:
-            return 0
-        elif creditLevelTest == 2:
-            return 5000
-        elif creditLevelTest == 3:
-            return 10000
-        else:
-            return 50000
-        
-class customerSystem(bankSystem):
-    def __init__(self):
-        super().__init__()
-        self.brokerageBalance = 0
-        self.brokerAssetDatabase = {}
-    def mintMoney():
-        #add
-        print("No content")
+        loanLimitOfAccount = {
+            1: 0,
+            2: 5000,
+            3: 10000,
+            4: 50000
+        }
+        return loanLimitOfAccount.get(creditLevelTest)
     
-    def burnMoney():
-        #decrease
-        print("No content")
+    def customerLoanInterestRate(self, creditLevelTest = 0):
+        interestRateOfAccount = {
+            2: 0.25,
+            3: 0.225,
+            4: 0.20
+        }
+        return interestRateOfAccount.get(creditLevelTest)
+    
+    def checkCustomerExistence(self, customerTestID = ""):
+        if customerTestID in self.customerDatabase.keys():
+            return True
+        else:
+            print(f"Customer {customerTestID} does not exist.")
+            return False
