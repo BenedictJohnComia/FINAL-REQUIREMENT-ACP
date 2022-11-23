@@ -213,12 +213,12 @@ class bankSystem:
                 if choiceCustomerDatabase == 1:
                     self.showCustomerDatabase()
                 elif choiceCustomerDatabase == 2:
-                    choiceCustomer = str(input("Enter ID of customer to be searched: "))
-                    customerExistence = self.checkCustomerExistence(choiceCustomer)
+                    choiceCustomer = int(input("Enter ID of customer to be searched: "))
+                    customerExistence = self.checkCustomerExistence(str(choiceCustomer))
                     if customerExistence == False: return
-                    print("\nCustomer ID:", choiceCustomer)
-                    for customerID in self.customerDatabase[choiceCustomer]:
-                        print("   ", customerID, self.customerDatabase[choiceCustomer][customerID])
+                    print("\nCustomer ID:", str(choiceCustomer))
+                    for customerID in self.customerDatabase[str(choiceCustomer)]:
+                        print("   ", customerID, self.customerDatabase[str(choiceCustomer)][customerID])
                 elif choiceCustomerDatabase == 3:
                     break
                 else:
