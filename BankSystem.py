@@ -159,7 +159,7 @@ class bankSystem:
     def accessCustomerDatabase(self):
         #show customer database
         #can search by ID
-        print("tanginamo")
+        print("No content")
           
         
     def creditLevel(self):
@@ -178,14 +178,13 @@ class bankSystem:
                 break
             
     def creditTierTest(self, creditLevelTest = 0):
-        if creditLevelTest == 1:
-            return "No Tier"
-        elif creditLevelTest == 2:
-            return "Bronze Tier"
-        elif creditLevelTest == 3:
-            return "Silver Tier"
-        else:
-            return "Gold Tier"
+        tierOfAccount = {
+            1: "No Tier",
+            2: "Bronze Tier",
+            3: "Silver Tier",
+            4: "Gold Tier",
+        }
+        return tierOfAccount.get(creditLevelTest)
     
     def loanLimit(self, creditLevelTest = 0):
         if creditLevelTest == 1:
@@ -204,8 +203,8 @@ class customerSystem(bankSystem):
         self.brokerAssetDatabase = {}
     def mintMoney():
         #add
-        print("tanginamo")
+        print("No content")
     
     def burnMoney():
         #decrease
-        print("sdada")
+        print("No content")
