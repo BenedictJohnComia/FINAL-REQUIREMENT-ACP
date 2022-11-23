@@ -295,7 +295,7 @@ class bankSystem:
                 newAccNum = int(self.customerDatabase[dictID]["Account Number:"])
                 return newAccNum + 1 
         else:
-                return 69347501  
+            return 69347501
             
     def checkCustomerExistence(self, customerTestID = 0):
         customerTestID = str(customerTestID)
