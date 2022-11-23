@@ -23,4 +23,4 @@ if choiceOfUser == 1:
         elif userinput == 7:
             break
         else:
-            print("Invalid Input. Please try sheesh")
+            print("\nInvalid Input. Please try sheesh")

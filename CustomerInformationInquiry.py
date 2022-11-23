@@ -9,7 +9,7 @@ class customerInfo:
         self.pin = int(input("Enter pin: "))
         self.username = input("Enter username: ")
         self.password = input("Enter password: ")
-        self.balance = float(input("Enter your initial deposit: "))
+        self.balance = 0.0
         self.creditLevelofCustomer = int(self.creditLevel())
         self.creditTier = str(self.creditTierTest(self.creditLevelofCustomer))
         self.loanLimitAcc = float(self.loanLimit(self.creditLevelofCustomer))
