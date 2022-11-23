@@ -19,8 +19,7 @@ if choiceOfUser == 1:
         elif userinput == 5:
             mainBank.accessCustomerDatabase()
         elif userinput == 6:
-            mainBank.displayTest()
-            #mainBank.assetDatabase()
+            mainBank.displayBankMonetaryCollection()
         elif userinput == 7:
             break
         else:

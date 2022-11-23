@@ -5,7 +5,7 @@ def MainMenuAdmin():
     print("[3] Open Account")
     print("[4] Loan Assesment")
     print("[5] Access Customer Database")
-    print("[6] Test")
+    print("[6] Display Bank Monetary Collection")
     print("[7] Exit")
 
 def MainMenuCustomer():
