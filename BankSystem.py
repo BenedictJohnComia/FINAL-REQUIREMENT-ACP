@@ -16,7 +16,6 @@ class bankSystem:
         self.burnTotal = self.bankMonetaryCollection["Burn Total:"]
         self.initialDepositTotal = self.bankMonetaryCollection["Initial Deposit Total:"]
         self.loanTotal = self.bankMonetaryCollection["Loan Total:"]
-        self.activityLog = []
         self.mintCount = 5
      
     def mintMoney(self):
@@ -142,7 +141,7 @@ class bankSystem:
                     self.bankBalance = self.bankBalance + customerObj.balance
                     self.bankMonetaryCollection["Initial Deposit Total:"] = self.initialDepositTotal
                     self.bankMonetaryCollection["Bank Balance:"] = self.bankBalance
-                    print(f"The initial deposit total is {self.initialDepositTotal}") 
+                    print(f"\nThe initial deposit total is {self.initialDepositTotal}") 
                     print(f"The current balance of bank is {self.bankBalance}") 
                     
                     self.addToCustomerJsonFile()
