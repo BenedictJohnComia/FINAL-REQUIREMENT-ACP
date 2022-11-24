@@ -152,7 +152,7 @@ class bankSystem:
                     print("Invalid Input. Please try again.")
             
         except ValueError as e:
-            print("\nThe program", e)
+            print("\nThe program determined an", e)
             print ("You entered a value that is not an integer. Please try again.")
         except TypeError as e:
             print("\nThe", e)
@@ -214,7 +214,7 @@ class bankSystem:
                         self.customerJsonToDict()
           
         except ValueError as e:
-            print("\nThe program", e)
+            print("\nThe program determined an", e)
             print ("You entered a value that is not a number. Please try again.") 
     
     def closeAccount(self):
@@ -259,7 +259,7 @@ class bankSystem:
                     print("\nInvalid Input. Please try again.")
                     
         except ValueError as e:
-            print("\nThe program determined", e)
+            print("\nThe program determined an", e)
             print ("You entered a value that is not a number. Please try again.") 
         
     def accessCustomerDatabase(self):
@@ -282,7 +282,7 @@ class bankSystem:
                     print("\nInvalid Input. Please try again.")
                     
         except ValueError as e:
-            print("\nThe program", e)
+            print("\nThe program determined an", e)
             print ("You entered a value that is not a number. Please try again.") 
             
     def showCustomerDatabase(self):
