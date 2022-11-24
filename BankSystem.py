@@ -15,11 +15,13 @@ class bankSystem:
         self.mintTotal = self.bankMonetaryCollection["Mint Total:"]
         self.burnTotal = self.bankMonetaryCollection["Burn Total:"]
         self.initialDepositTotal = self.bankMonetaryCollection["Initial Deposit Total:"]
+        self.loanTotal = self.bankMonetaryCollection["Loan Total:"]
         self.activityLog = []
         self.mintCount = 5
      
     def mintMoney(self):
         try:
+            self.bankMonetaryJsonToDict()
             print("\nMINT MONEY")
             print("The minting limit is currently at Php 50,000.00")
             print(f"You have {self.mintCount} mints left.")
@@ -47,6 +49,7 @@ class bankSystem:
         
     def burnMoney(self):
         try:
+            self.bankMonetaryJsonToDict()
             print("\nBURN MONEY")
             if self.bankBalance == 0.0:
                 print("\nThere are no funds to be burned.")
@@ -72,6 +75,9 @@ class bankSystem:
         
     def openAccount(self):
         try:
+            self.customerJsonToDict()
+            self.customerID = str(self.customerNewID())
+            self.accountNumber = int(self.customerNewAccNum())
             print("\nOPEN ACCOUNT")
             print(f"Enter information for customer {self.customerID}")
             customerObj = customerInfo()
@@ -131,35 +137,34 @@ class bankSystem:
                     self.customerDatabase[self.customerID]["Credit Level:"] = customerObj.creditLevelofCustomer
                     self.customerDatabase[self.customerID]["Loan Limit:"] = customerObj.loanLimitAcc
                     self.customerDatabase[self.customerID]["Loan:"] = customerObj.loan
+                    
+                    self.initialDepositTotal = self.initialDepositTotal + customerObj.balance
+                    self.bankBalance = self.bankBalance + customerObj.balance
+                    self.bankMonetaryCollection["Initial Deposit Total:"] = self.initialDepositTotal
+                    self.bankMonetaryCollection["Bank Balance:"] = self.bankBalance
+                    print(f"The initial deposit total is {self.initialDepositTotal}") 
+                    print(f"The current balance of bank is {self.bankBalance}") 
+                    
+                    self.addToCustomerJsonFile()
+                    self.addToBankMonetaryJsonFile()
                     break
+                
                 else:
                     print("Invalid Input. Please try again.")
-  
-            self.initialDepositTotal = self.initialDepositTotal + customerObj.balance
-            self.bankBalance = self.bankBalance + customerObj.balance
-            self.bankMonetaryCollection["Initial Deposit Total:"] = self.initialDepositTotal
-            self.bankMonetaryCollection["Bank Balance:"] = self.bankBalance
-            print(f"The initial deposit total is {self.initialDepositTotal}") 
-            print(f"The current balance of bank is {self.bankBalance}") 
-            self.customerID = self.customerID + 1
-            self.accountNumber = self.accountNumber + 1
-            self.addToCustomerJsonFile()
-            self.addToBankMonetaryJsonFile()
             
         except ValueError as e:
             print("\nThe program", e)
             print ("You entered a value that is not an integer. Please try again.")
-        
         except TypeError as e:
             print("\nThe", e)
             print ("An invalid input caused this error")
-            
         except AttributeError as e:
             print("\nThe program", e)
             print ("An invalid input caused this error")
             
     def loanAssesment(self):
         try:
+            self.bankMonetaryJsonToDict()
             self.customerJsonToDict()
             
             print("\nLOAN ASSESSMENT")
@@ -176,9 +181,10 @@ class bankSystem:
             print(f"The loan limit of Customer {choiceCustomer} is {customerLoanLimit}.")
             
             if customerCreditLevel == 1:
-                print(f"Customer {customerCreditLevel} cannot loan in the bank because he/she has no tier.")
+                print(f"Customer {choiceCustomer} cannot loan in the bank because he/she has No Tier.")
                 return
             else:
+                self.bankBalance = self.bankMonetaryCollection["Bank Balance:"]
                 print(f"Bank Balance: {self.bankBalance}")
                 loanAmount = float(input("How much money will be loaned: "))
                 if loanAmount > self.bankBalance:
@@ -198,13 +204,58 @@ class bankSystem:
                         print(f"Loan placed: {loanAmount}")
                         print(f"Loan to be payed (with annual interest): {loanWithInterest}")
                         
+                        self.bankMonetaryCollection["Bank Balance:"] = float(self.bankMonetaryCollection["Bank Balance:"] - loanAmount)
+                        self.loanTotal = self.bankMonetaryCollection["Loan Total:"]
+                        self.bankMonetaryCollection["Loan Total:"] = float(self.loanTotal + loanAmount)
                         self.customerDatabase[choiceCustomer]["Loan:"] = float(loanWithInterest)
+                        
                         self.addToCustomerJsonFile()
+                        self.addToBankMonetaryJsonFile()
+                        self.bankMonetaryJsonToDict()
+                        self.customerJsonToDict()
           
         except ValueError as e:
             print("\nThe program", e)
             print ("You entered a value that is not a number. Please try again.") 
-                 
+    
+    def closeAccount(self):
+        try:
+            self.customerJsonToDict()
+            self.bankMonetaryJsonToDict()
+            
+            print("\nCLOSE ACCOUNT")
+            choiceCustomer = int(input("Enter ID of customer: "))
+            customerExistence = self.checkCustomerExistence(choiceCustomer)
+            if customerExistence == False: return
+            print("\nCustomer ID:", str(choiceCustomer))
+            for customerID in self.customerDatabase[str(choiceCustomer)]:
+                print("   ", customerID, self.customerDatabase[str(choiceCustomer)][customerID])
+            
+            while True:
+                print(f"\nAre you sure you want to close the account of Customer {choiceCustomer} ?")
+                print("[1] Yes")
+                print("[2] No")
+                choiceClose = int(input("Enter your choice: "))
+                if choiceClose == 1:
+                    self.bankMonetaryCollection["Bank Balance:"] = float(self.bankMonetaryCollection["Bank Balance:"] - self.customerDatabase[str(choiceCustomer)]["Balance:"])
+                    del self.customerDatabase[str(choiceCustomer)]
+                    
+                    print(f"\nThe account of Customer {choiceCustomer} is succesfully closed.")
+                    
+                    self.addToBankMonetaryJsonFile()
+                    self.bankMonetaryJsonToDict()
+                    self.addToCustomerJsonFile()
+                    self.customerJsonToDict()
+                    break
+                elif choiceClose == 2:
+                    break
+                else:
+                    print("\nInvalid Input. Please try again.")
+                    
+        except ValueError as e:
+            print("\nThe program", e)
+            print ("You entered a value that is not a number. Please try again.") 
+        
     def accessCustomerDatabase(self):
         try:
             while True:
@@ -229,12 +280,15 @@ class bankSystem:
             print ("You entered a value that is not a number. Please try again.") 
             
     def showCustomerDatabase(self):
+        self.customerJsonToDict()
         print("\nCUSTOMER DATABASE")
+        print("--------------------------------------------")
         for CustomerID, CustomerInformation in self.customerDatabase.items():
             print("Customer ID:", CustomerID)
             for keyInfo in CustomerInformation:
                 print("   ", keyInfo, CustomerInformation[keyInfo]) 
-                
+        print("--------------------------------------------")      
+         
     def displayBankMonetaryCollection(self):
         print("\nBANK MONETARY FUNDS")
         for id, amount in self.bankMonetaryCollection.items():
@@ -252,7 +306,8 @@ class bankSystem:
     def addToCustomerJsonFile(self):
         try:
             with open("Database/CustomerDatabase.json", "w") as customerDatabaseJSON:
-                json.dump(self.customerDatabase, customerDatabaseJSON)
+                orderedDict = collections.OrderedDict(sorted(self.customerDatabase.items()))
+                json.dump(orderedDict, customerDatabaseJSON)
                 
             customerDatabaseJSON.close()
         except FileNotFoundError as e:
@@ -270,6 +325,7 @@ class bankSystem:
             self.bankMonetaryCollection["Mint Total:"] = 0.0
             self.bankMonetaryCollection["Burn Total:"] = 0.0
             self.bankMonetaryCollection["Initial Deposit Total:"] = 0.0
+            self.bankMonetaryCollection["Loan Total:"] = 0.0
             
     def addToBankMonetaryJsonFile(self):
         try:
@@ -277,24 +333,45 @@ class bankSystem:
                 json.dump(self.bankMonetaryCollection, bankMonetaryDatabaseJSON)
                 
             bankMonetaryDatabaseJSON.close()
+            
         except FileNotFoundError as e:
             print(e)
             print("File not found.")
             
     def customerNewID(self):
         if "1001" in self.customerDatabase.keys():
-            for dictID in reversed(self.customerDatabase.keys()):
-                newID = int(dictID)
-                return newID + 1
+            for dictID in self.customerDatabase.keys():
+                currentID = int(dictID)
+                testID = currentID - 1
+                if testID == 1000:
+                    continue
+                elif str(testID) not in self.customerDatabase.keys():
+                    return int(testID)
+                elif str(currentID + 1) in self.customerDatabase.keys():
+                    continue
+            else:
+                newID = currentID + 1
+                return int(newID)
         else:
             return 1001
         
     def customerNewAccNum(self):
         if "1001" in self.customerDatabase.keys():
-             for dictID in reversed(self.customerDatabase.keys()):
-                newAccNum = int(self.customerDatabase[dictID]["Account Number:"])
-                return newAccNum + 1 
-        else:
+            for dictID in self.customerDatabase.keys():
+                currentAccNum = int((self.customerDatabase[dictID]["Account Number:"]))
+                testAccNum = currentAccNum - 1
+                currentID = int(dictID)
+                testID = currentID - 1
+                if testID == 1000:
+                    continue
+                elif str(testID) not in self.customerDatabase.keys():
+                    return int(testAccNum)
+                elif str(currentID + 1) in self.customerDatabase.keys():
+                    continue
+            else:
+                newAccNum = currentAccNum + 1
+                return int(newAccNum)
+        else:  
             return 69347501
             
     def checkCustomerExistence(self, customerTestID = 0):

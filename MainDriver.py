@@ -19,10 +19,12 @@ if choiceOfUser == 1:
             elif userinput == 4:
                 mainBank.loanAssesment()
             elif userinput == 5:
-                mainBank.accessCustomerDatabase()
+                mainBank.closeAccount()
             elif userinput == 6:
-                mainBank.displayBankMonetaryCollection()
+                mainBank.accessCustomerDatabase()
             elif userinput == 7:
+                mainBank.displayBankMonetaryCollection()
+            elif userinput == 8:
                 break
             else:
                 print("\nInvalid Input. Please try again")

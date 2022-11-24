@@ -7,7 +7,7 @@ def Welcome():
         try:
             print("\nAre you an admin or a broker?")
             print("[1] Admin")
-            print("[2] Broker")
+            print("[2] Customer")
             choiceOfUser = int(input("\nEnter your choice: "))
             if choiceOfUser == 1:
                 return choiceOfUser

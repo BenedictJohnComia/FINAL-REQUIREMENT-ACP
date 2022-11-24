@@ -4,9 +4,10 @@ def MainMenuAdmin():
     print("[2] Burn Money")
     print("[3] Open Account")
     print("[4] Loan Assesment")
-    print("[5] Access Customer Database")
-    print("[6] Display Bank Monetary Collection")
-    print("[7] Exit")
+    print("[5] Close Account")
+    print("[6] Access Customer Database")
+    print("[7] Display Bank Monetary Collection")
+    print("[8] Exit")
 
 def MainMenuCustomer():
     print("[1] Deposite Money")
