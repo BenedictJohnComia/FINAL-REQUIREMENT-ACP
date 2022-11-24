@@ -17,7 +17,7 @@ class customerInfo:
     
     def displayInfo(self):
         print("\nPlease verify the following information:")
-        print(f"Customer {self.customerID} is {self.firstName} {self.lastName}, {self.age} years old from {self.address}, has initial deposit amounting to {self.balance}.")
+        print(f"Customer {self.customerID} is {self.firstName} {self.lastName}, {self.age} years old from {self.address}, has initial deposit amounting to ₱{self.balance}.")
         print(f"The pin code of customer {self.customerID} is {self.pin} that has:")
         print(f"Account Number : {self.accountNumber}")
         print(f"Credit Tier: {self.creditTier}")

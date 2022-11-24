@@ -22,7 +22,7 @@ class bankSystem:
         try:
             self.bankMonetaryJsonToDict()
             print("\nMINT MONEY")
-            print("The minting limit is currently at Php 50,000.00")
+            print("The minting limit is currently at ₱50,000.00")
             print(f"You have {self.mintCount} mints left.")
             if self.mintCount <= 5 and self.mintCount >= 1:
                 addMoney = float(input("Enter amount to be minted: "))
@@ -36,8 +36,8 @@ class bankSystem:
                 self.bankMonetaryCollection["Mint Total:"] = self.mintTotal
                 self.bankMonetaryCollection["Bank Balance:"] = self.bankBalance
                 
-                print(f"The mint total is {self.mintTotal}") 
-                print(f"The current balance of bank is {self.bankBalance}") 
+                print(f"The mint total is ₱{self.mintTotal}") 
+                print(f"The current balance of bank is ₱{self.bankBalance}") 
                 
                 self.addToBankMonetaryJsonFile()
             else:
@@ -63,8 +63,8 @@ class bankSystem:
                 self.bankMonetaryCollection["Burn Total:"] = self.burnTotal
                 self.bankMonetaryCollection["Bank Balance:"] = self.bankBalance
                 
-                print(f"The burn total is {self.burnTotal}") 
-                print(f"The current balance is {self.bankBalance}") 
+                print(f"The burn total is ₱{self.burnTotal}") 
+                print(f"The current balance is ₱{self.bankBalance}") 
                 
                 self.addToBankMonetaryJsonFile()
                 
@@ -141,8 +141,8 @@ class bankSystem:
                     self.bankBalance = self.bankBalance + customerObj.balance
                     self.bankMonetaryCollection["Initial Deposit Total:"] = self.initialDepositTotal
                     self.bankMonetaryCollection["Bank Balance:"] = self.bankBalance
-                    print(f"\nThe initial deposit total is {self.initialDepositTotal}") 
-                    print(f"The current balance of bank is {self.bankBalance}") 
+                    print(f"\nThe initial deposit total is ₱{self.initialDepositTotal}") 
+                    print(f"The current balance of bank is ₱{self.bankBalance}") 
                     
                     self.addToCustomerJsonFile()
                     self.addToBankMonetaryJsonFile()
@@ -176,8 +176,8 @@ class bankSystem:
             customerLoan =  float(self.customerDatabase[choiceCustomer]["Loan:"])
             customerLoanLimit = float(self.customerDatabase[choiceCustomer]["Loan Limit:"])
             customerLoanInterestRate = self.customerLoanInterestRate(customerCreditLevel)
-            print(f"Customer {choiceCustomer} currently has a loan amounting to {customerLoan}.")
-            print(f"The loan limit of Customer {choiceCustomer} is {customerLoanLimit}.")
+            print(f"Customer {choiceCustomer} currently has a loan amounting to ₱{customerLoan}.")
+            print(f"The loan limit of Customer {choiceCustomer} is ₱{customerLoanLimit}.")
             
             if customerCreditLevel == 1:
                 print(f"Customer {choiceCustomer} cannot loan in the bank because he/she has No Tier.")
@@ -196,12 +196,12 @@ class bankSystem:
                     currentLoan = self.customerDatabase[choiceCustomer]["Loan:"]
                     loanWithInterest = (loanAmount + (customerLoanInterestRate * loanAmount)) + currentLoan
                     if loanWithInterest > customerLoanLimit:
-                        print(f"\nThe current loan exceeds the loan limit which is {customerLoanLimit}")
+                        print(f"\nThe current loan exceeds the loan limit which is ₱{customerLoanLimit}")
                         print("Sorry for the inconvenience. Please try again.")
                     else:
                         print("\nThe following transactions are made: ")
-                        print(f"Loan placed: {loanAmount}")
-                        print(f"Loan to be payed (with annual interest): {loanWithInterest}")
+                        print(f"Loan placed: ₱{loanAmount}")
+                        print(f"Loan to be payed (with annual interest): ₱{loanWithInterest}")
                         
                         self.bankMonetaryCollection["Bank Balance:"] = float(self.bankMonetaryCollection["Bank Balance:"] - loanAmount)
                         self.loanTotal = self.bankMonetaryCollection["Loan Total:"]
@@ -291,7 +291,7 @@ class bankSystem:
     def displayBankMonetaryCollection(self):
         print("\nBANK MONETARY FUNDS")
         for id, amount in self.bankMonetaryCollection.items():
-            print(id, amount) 
+            print(id, "₱", amount) 
         
     def customerJsonToDict(self):
         try:
