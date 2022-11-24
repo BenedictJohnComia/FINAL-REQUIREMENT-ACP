@@ -10,6 +10,7 @@ def MainMenuAdmin():
     print("[8] Exit")
 
 def MainMenuCustomer():
+    print("\nCUSTOMER MENU")
     print("[1] Deposite Money")
     print("[2] Collect Money")
     print("[3] Activity Log")
