@@ -225,11 +225,18 @@ class bankSystem:
             print("\nCLOSE ACCOUNT")
             choiceCustomer = int(input("Enter ID of customer: "))
             customerExistence = self.checkCustomerExistence(choiceCustomer)
+            customerLoan =  float(self.customerDatabase[str(choiceCustomer)]["Loan:"])
             if customerExistence == False: return
+            
             print("\nCustomer ID:", str(choiceCustomer))
             for customerID in self.customerDatabase[str(choiceCustomer)]:
                 print("   ", customerID, self.customerDatabase[str(choiceCustomer)][customerID])
             
+            if customerLoan > 0.0:
+                print(f"\nCustomer {choiceCustomer} currently has a loan amounting to ₱{customerLoan}.")
+                print(f"Account cannot be closed when there is still a loan in the account.")
+                return
+                
             while True:
                 print(f"\nAre you sure you want to close the account of Customer {choiceCustomer} ?")
                 print("[1] Yes")
@@ -252,7 +259,7 @@ class bankSystem:
                     print("\nInvalid Input. Please try again.")
                     
         except ValueError as e:
-            print("\nThe program", e)
+            print("\nThe program determined", e)
             print ("You entered a value that is not a number. Please try again.") 
         
     def accessCustomerDatabase(self):
