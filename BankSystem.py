@@ -158,7 +158,7 @@ class bankSystem:
             print("\nThe", e)
             print ("An invalid input caused this error")
         except AttributeError as e:
-            print("\nThe program", e)
+            print("\nThe", e)
             print ("An invalid input caused this error")
             
     def loanAssesment(self):
