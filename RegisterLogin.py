@@ -1,4 +1,5 @@
 import json
+from MainMenuMethods import MainMenuAdmin
 
 def Register_Login():
 
@@ -16,8 +17,10 @@ def Register_Login():
                 Register_Login()
                 break
             elif reg_log == 2:
-                pass
-    
+                #may inaaral pa akong method for here
+                print("Login Successfully!")
+                MainMenuAdmin()
+                break
             else:
                 print("Invalid Input!")
                 

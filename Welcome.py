@@ -11,7 +11,7 @@ def Welcome():
             print("[2] Customer")
             choiceOfUser = int(input("\nEnter your choice: "))
             if choiceOfUser == 1:
-                Register_Login()
+                return choiceOfUser
             elif choiceOfUser == 2:
                 return choiceOfUser
             else:

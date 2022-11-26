@@ -1,6 +1,7 @@
 from Welcome import Welcome
 from MainMenuMethods import MainMenuAdmin, MainMenuCustomer
 from BankSystem import bankSystem
+from RegisterLogin import Register_Login
 
 choiceOfUser = Welcome()
 mainBank = bankSystem()
@@ -8,7 +9,7 @@ mainBank = bankSystem()
 if choiceOfUser == 1: 
     while True:
         try:
-            MainMenuAdmin()
+            Register_Login()
             userinput = int(input("ENTER CHOICE: "))
             if userinput == 1:
                 mainBank.mintMoney()
