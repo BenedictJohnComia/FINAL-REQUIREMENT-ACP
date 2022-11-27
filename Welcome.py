@@ -6,10 +6,9 @@ def Welcome():
             print("\nAre you an admin or a customer?")
             print("[1] Admin")
             print("[2] Customer")
+            print("[3] Exit")
             choiceOfUser = int(input("Enter your choice: "))
-            if choiceOfUser == 1:
-                return choiceOfUser
-            elif choiceOfUser == 2:
+            if choiceOfUser == 1 or choiceOfUser == 2 or choiceOfUser == 3:
                 return choiceOfUser
             else:
                 print("\nInvalid Input. Please try again.")

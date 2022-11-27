@@ -91,6 +91,10 @@ class atmSystem(bankSystem):
             self.bankMonetaryJsonToDict()
             
             print("\nPAY LOAN")
+            if self.customerLoan == 0:
+                print("You have no loan to pay.")
+                return
+           
             print("How much loan do you want to pay?")
             payLoanMoney = float(input("Enter amount: "))
             if  payLoanMoney > self.customerLoan:
@@ -119,7 +123,7 @@ class atmSystem(bankSystem):
                     return
                 else:
                     print("\nInvalid Input. Please try again")
-        
+    
         except ValueError as e:
             print("\nThe program receives an", e)
             print ("You entered a value that is not a number. Please try again.")
@@ -127,7 +131,7 @@ class atmSystem(bankSystem):
     def checkBalance(self):
         print("\nCHECK BALANCE")
         print(f"Your current balance is {self.customerBalance}")
-        
+
     def pinCount(self):
         self.customerPinCount = self.customerPinCount - 1
         if self.customerPinCount == 0:

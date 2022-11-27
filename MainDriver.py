@@ -2,8 +2,8 @@ from Welcome import Welcome
 from MainMenuMethods import MainMenuAdmin, MainMenuCustomer, MainMenuLoginAdmin, MainMenuLoginCustomer
 from BankSystem import bankSystem
 from ATMSystem import atmSystem
-from AdminLogin import adminLogin
-from CustomerLogin import customerLogin
+from Login.AdminLogin import adminLogin
+from Login.CustomerLogin import customerLogin
 
 mainBank = bankSystem()
 adminLoginObj = adminLogin()
@@ -49,7 +49,9 @@ while True:
             except ValueError as e:
                 print("\nThe program receives an", e)
                 print ("You entered a value that is not a number. Please try again.")
-                
+    elif choiceOfUser == 3:
+        break
+               
     if systemUser == 1: 
         while True:
             try:
@@ -100,3 +102,6 @@ while True:
             except ValueError as e:
                 print("\nThe program receives an", e)
                 print ("You entered a value that is not a number. Please try again.")
+
+
+print("\nThank you for using the Granny's banking System. Have a nice day!")

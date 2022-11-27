@@ -1,4 +1,4 @@
-from AdminLogin import adminLogin
+from Login.AdminLogin import adminLogin
 import json
 import collections
 
