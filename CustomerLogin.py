@@ -5,47 +5,35 @@ import collections
 class customerLogin(adminLogin):
     def __init__(self):
         self.customerDatabase = collections.defaultdict(dict)
-        self.customerJsonToDict()
-        self.adminID = int(self.adminNewID())
-        self.adminUsername = ""
-        self.adminPassword = ""
+        self.customerUsername = ""
+        self.customerPassword = ""
         
     def login(self):
-        self.adminJsonToDict()
-        
-        adminLoginID = int(input("Enter your Admin ID: "))
-        adminExistence = self.checkExistence(adminLoginID)
-        if adminExistence == False: return
-        
-        self.adminUsername = self.adminDatabase[str(adminLoginID)]["Username"]
-        self.adminPassword = self.adminDatabase[str(adminLoginID)]["Password"]
-        
-        while True:
-            adminLoginUsername = str(input("Enter your username: "))
-            adminLoginPassword = str(input("Enter your password: "))
-            if self.adminUsername == adminLoginUsername and self.adminPassword == adminLoginPassword:
-                print("\nLogin Successful!")
-                print(f"Welcome Admin {adminLoginID}!")
-                return 1
-            else:
-                print("\nIncorrect Username or Password. Please try again.\n")
-                  
-    def register(self):
-        self.adminJsonToDict()
-        self.adminID = str(self.adminNewID())
-        
-        print(f"\nEnter the information for Admin {self.adminID}:")
-        adminRegisterUsername = str(input("Enter your username: "))
-        adminRegisterPassword = str(input("Enter your password: "))
-        
-        self.adminDatabase[self.adminID] = {}
-        self.adminDatabase[self.adminID]["Username"] = adminRegisterUsername
-        self.adminDatabase[self.adminID]["Password"] = adminRegisterPassword
-        
-        print(f"\nRegister successful for Admin {self.adminID}")
-        
-        self.addToAdminJsonFile()
-        
+        try:
+            while True:
+                self.customerJsonToDict()
+                self.accountNumber = int(input("\nEnter your account number: "))
+                self.customerID = int(self.getCustomerID(self.accountNumber))
+                if self.customerID == 0: return 0
+                
+                self.customerUsername = self.customerDatabase[str(self.customerID)]["Username:"]
+                self.customerPassword = self.customerDatabase[str(self.customerID)]["Password:"]
+
+                while True:
+                    customerLoginUsername = str(input("Enter your username: "))
+                    customerLoginPassword = str(input("Enter your password: "))
+                    
+                    if self.customerUsername == customerLoginUsername and self.customerPassword == customerLoginPassword:
+                        print("\nLogin Successful!")
+                        print(f"Welcome Customer {self.customerID}!")
+                        return 2
+                    else:
+                        print("\nIncorrect Username or Password. Please try again.\n")
+                              
+        except ValueError as e:
+            print("\nThe program receives an", e)
+            print ("You entered a value that is not a number. Please try again.")
+            
     def checkExistence(self, adminTestID = 0):
         adminTestID = str(adminTestID)
         if adminTestID in self.adminDatabase.keys():
@@ -62,3 +50,12 @@ class customerLogin(adminLogin):
             customerDatabaseJSON.close()
         except:
             pass
+    
+    def getCustomerID(self, accNumber = 0):
+        for keyOfDict, valOfDict in self.customerDatabase.items():
+            for nestedKey, nestedVal in valOfDict.items():
+                if accNumber == nestedVal:
+                    return keyOfDict
+        else:
+            print(f"\nAccount number {accNumber} does not exist!")
+            return 0

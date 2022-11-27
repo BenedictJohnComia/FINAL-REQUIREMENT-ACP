@@ -1,11 +1,14 @@
 from BankSystem import bankSystem
+from CustomerLogin import customerLogin
 from MainMenuMethods import MainMenuCustomer
 import collections
 import json
 
 class atmSystem(bankSystem):
-    def __init__(self):
-        self.customerJsonToDict
-        self.bankMonetaryJsonToDict
+    def __init__(self, customerID):
+        self.customerJsonToDict()
+        self.bankMonetaryJsonToDict()
         self.CustomerInfo  = collections(dict)
-        self.usernameCustomer = ()
+        self.customerID = customerID
+    
+    

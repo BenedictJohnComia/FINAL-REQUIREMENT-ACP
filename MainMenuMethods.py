@@ -3,7 +3,12 @@ def MainMenuLoginAdmin():
     print("[1] Login")
     print("[2] Register")
     print("[3] Exit")
-    
+
+def MainMenuLoginCustomer():
+    print("\nCUSTOMER")
+    print("[1] Use ATM")
+    print("[2] Exit")
+      
 def MainMenuAdmin():
     print("\nADMIN MENU")
     print("[1] Mint Money")
@@ -17,10 +22,10 @@ def MainMenuAdmin():
 
 def MainMenuCustomer():
     print("\nCUSTOMER MENU")
-    print("[1] Deposite Money")
-    print("[2] Collect Money")
-    print("[3] Activity Log")
-    print("[4] Open Account")
+    print("[1] Withdraw Money")
+    print("[2] Deposit Money")
+    print("[3] Pay Loan")
+    print("[4] Check Balance")
     print("[5] Exit")
     
 def MainMenuVerifyInfo():

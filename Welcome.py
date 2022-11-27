@@ -5,7 +5,7 @@ def Welcome():
     
     while True:
         try:
-            print("\nAre you an admin or a broker?")
+            print("\nAre you an admin or a customer?")
             print("[1] Admin")
             print("[2] Customer")
             choiceOfUser = int(input("\nEnter your choice: "))
