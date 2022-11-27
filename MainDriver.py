@@ -1,15 +1,58 @@
 from Welcome import Welcome
-from MainMenuMethods import MainMenuAdmin, MainMenuCustomer
+from MainMenuMethods import MainMenuAdmin, MainMenuCustomer, MainMenuLoginAdmin
 from BankSystem import bankSystem
+from ATMSystem import atmSystem
+from AdminLogin import adminLogin
 
 choiceOfUser = Welcome()
 mainBank = bankSystem()
+admin = adminLogin()
+systemUser = 0
 
 if choiceOfUser == 1: 
     while True:
         try:
+            MainMenuLoginAdmin()
+            choiceAdminLogin = int(input("Enter choice: "))
+            if choiceAdminLogin == 1:
+                systemUser = admin.login()
+                break
+            elif choiceAdminLogin == 2:
+                admin.register()
+            elif choiceAdminLogin == 3:
+                break
+            else:
+                print("\nInvalid Input. Please try again")
+                
+        except ValueError as e:
+            print("\nThe program receives an", e)
+            print ("You entered a value that is not a number. Please try again.")
+            
+elif choiceOfUser == 2:
+    while True:
+        try:
+            MainMenuLoginAdmin()
+            atmObj = atmSystem()
+            choiceAdminLogin = int(input("Enter choice: "))
+            if choiceAdminLogin == 1:
+                systemUser = admin.login()
+                break
+            elif choiceAdminLogin == 2:
+                admin.register()
+            elif choiceAdminLogin == 3:
+                break
+            else:
+                print("\nInvalid Input. Please try again")
+                
+        except ValueError as e:
+            print("\nThe program receives an", e)
+            print ("You entered a value that is not a number. Please try again.")
+            
+if systemUser == 1: 
+    while True:
+        try:
             MainMenuAdmin()
-            userinput = int(input("ENTER CHOICE: "))
+            userinput = int(input("Enter choice: "))
             if userinput == 1:
                 mainBank.mintMoney()
             elif userinput == 2:

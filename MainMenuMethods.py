@@ -1,3 +1,9 @@
+def MainMenuLoginAdmin():
+    print("\nADMIN")
+    print("[1] Login")
+    print("[2] Register")
+    print("[3] Exit")
+    
 def MainMenuAdmin():
     print("\nADMIN MENU")
     print("[1] Mint Money")
