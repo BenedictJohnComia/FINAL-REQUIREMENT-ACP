@@ -1,4 +1,4 @@
-from BankSystem import bankSystem
+from Systems.BankSystem import bankSystem
 from MainMenuMethods import MainMenuYesOrNo
 
 class atmSystem(bankSystem):

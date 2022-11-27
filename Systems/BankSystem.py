@@ -1,5 +1,5 @@
 from MainMenuMethods import MainMenuVerifyInfo, MainMenuCustomerDatabase
-from CustomerInformationInquiry import customerInfo
+from Systems.CustomerInformationInquiry import customerInfo
 import collections
 import json
 

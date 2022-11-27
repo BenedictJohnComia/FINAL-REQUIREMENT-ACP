@@ -1,7 +1,7 @@
 from Welcome import Welcome
 from MainMenuMethods import MainMenuAdmin, MainMenuCustomer, MainMenuLoginAdmin, MainMenuLoginCustomer
-from BankSystem import bankSystem
-from ATMSystem import atmSystem
+from Systems.BankSystem import bankSystem
+from Systems.ATMSystem import atmSystem
 from Login.AdminLogin import adminLogin
 from Login.CustomerLogin import customerLogin
 
