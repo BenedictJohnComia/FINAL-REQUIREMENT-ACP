@@ -9,7 +9,8 @@ class adminLogin:
         self.adminID = int(self.adminNewID())
         self.adminUsername = ""
         self.adminPassword = ""
-        self.adminLoginCount = 3
+        self.loginCount = 3
+        
     def login(self):
         self.adminJsonToDict()
         
@@ -28,13 +29,8 @@ class adminLogin:
                 print(f"Welcome Admin {adminLoginID}!")
                 return 1
             else:
-                self.adminLoginCount = self.adminLoginCount - 1
-                print("\nIncorrect Username or Password. Please try again.")
-                if self.adminLoginCount == 0:
-                    print("You reached the max amount of tries. Please try again.")
-                    return 0
-                else:
-                    print(f"You have {self.adminLoginCount} tries left.\n")
+                pinCount = self.pinCount()
+                if pinCount == False: return 0
                   
     def register(self):
         self.adminJsonToDict()
@@ -96,3 +92,12 @@ class adminLogin:
                 return int(newID)
         else:
             return 60381
+    
+    def pinCount(self):
+        self.loginCount = self.loginCount - 1
+        print("\nIncorrect Username or Password. Please try again.")
+        if self.loginCount == 0:
+            print("You reached the max amount of tries. Please try again.")
+            return False
+        else:
+            print(f"You have {self.loginCount} tries left.\n")

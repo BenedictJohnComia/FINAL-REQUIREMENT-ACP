@@ -1,5 +1,5 @@
 def Welcome():
-    print("\nWelcome to Granny's Banking System!")
+    print("\n--------------Welcome to Granny's Banking System!--------------")
     
     while True:
         try:
