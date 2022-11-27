@@ -7,6 +7,7 @@ class customerLogin(adminLogin):
         self.customerDatabase = collections.defaultdict(dict)
         self.customerUsername = ""
         self.customerPassword = ""
+        self.customerLoginCount = 3
         
     def login(self):
         try:
@@ -28,8 +29,14 @@ class customerLogin(adminLogin):
                         print(f"Welcome Customer {self.customerID}!")
                         return 2
                     else:
-                        print("\nIncorrect Username or Password. Please try again.\n")
-                              
+                        self.customerLoginCount = self.customerLoginCount - 1
+                        print("\nIncorrect Username or Password. Please try again")
+                        if self.customerLoginCount == 0:
+                            print("You reached the max amount of tries. Please try again.")
+                            return 0
+                        else:
+                            print(f"You have {self.customerLoginCount} tries left.\n")
+                   
         except ValueError as e:
             print("\nThe program receives an", e)
             print ("You entered a value that is not a number. Please try again.")

@@ -22,8 +22,8 @@ def MainMenuAdmin():
 
 def MainMenuCustomer():
     print("\nCUSTOMER MENU")
-    print("[1] Withdraw Money")
-    print("[2] Deposit Money")
+    print("[1] Deposit Money")
+    print("[2] Withdraw Money")
     print("[3] Pay Loan")
     print("[4] Check Balance")
     print("[5] Exit")
@@ -44,3 +44,7 @@ def MainMenuCustomerDatabase():
     print("\n[1] Display Customer Database")
     print("[2] Display Information of a specific Customer by ID")
     print("[3] Exit")
+
+def MainMenuYesOrNo():
+    print("[1] Yes")
+    print("[2] No")

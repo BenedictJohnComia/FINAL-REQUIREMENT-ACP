@@ -1,14 +1,12 @@
 def Welcome():
-    username = input("Greetings! You are? ")
-    print("Welcome to Granny's Banking System Mr/Ms.", username)
-    print("==============================================")
+    print("\nWelcome to Granny's Banking System!")
     
     while True:
         try:
             print("\nAre you an admin or a customer?")
             print("[1] Admin")
             print("[2] Customer")
-            choiceOfUser = int(input("\nEnter your choice: "))
+            choiceOfUser = int(input("Enter your choice: "))
             if choiceOfUser == 1:
                 return choiceOfUser
             elif choiceOfUser == 2:

@@ -18,7 +18,7 @@ class bankSystem:
         self.loanTotal = self.bankMonetaryCollection["Loan Total:"]
         self.mintCount = 5
      
-    def mintMoney(self):
+    def addMoney(self):
         try:
             self.bankMonetaryJsonToDict()
             print("\nMINT MONEY")
@@ -46,7 +46,7 @@ class bankSystem:
             print("\nThe program", e)
             print ("You entered a value that is not a number. Please try again.")
         
-    def burnMoney(self):
+    def removeMoney(self):
         try:
             self.bankMonetaryJsonToDict()
             print("\nBURN MONEY")
