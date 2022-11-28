@@ -7,6 +7,8 @@ Partial Fulfillment for the Requirements of
 
 CS - 121 Advanced Computer Programming
 
+Members: 
+
 Comia, Benedict John
 
 Obiedo, Grant Thomas
@@ -14,6 +16,7 @@ Obiedo, Grant Thomas
 Dimaapi, Kris Nathaniel
 
 Ebora, Francis Heaven
+
 
 ABOUT THE PROGRAM:
 
