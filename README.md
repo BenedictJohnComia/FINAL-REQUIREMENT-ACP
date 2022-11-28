@@ -2,12 +2,17 @@
 **Banking System**
 
 A Project Documentation Presented in
+
 Partial Fulfillment for the Requirements of
+
 CS - 121 Advanced Computer Programming
 
 Comia, Benedict John
+
 Obiedo, Grant Thomas
+
 Dimaapi, Kris Nathaniel
+
 Ebora, Francis Heaven
 
 ABOUT THE PROGRAM:
