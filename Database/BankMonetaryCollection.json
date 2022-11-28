@@ -1,1 +1,7 @@
-{"Bank Balance:": 220200.0, "Mint Total:": 140000.0, "Burn Total:": 13000.0, "Initial Deposit Total:": 99000.0, "Loan Total:": 33000.0}
+{
+    "Bank Balance": 67000.0,
+    "Mint Total": 80000.0,
+    "Burn Total": 110000.0,
+    "Initial Deposit Total": 140000.0,
+    "Loan Total": 3000.0
+}

@@ -11,11 +11,11 @@ class bankSystem:
         self.bankMonetaryJsonToDict()
         self.customerID = int(self.customerNewID()) 
         self.accountNumber = int(self.customerNewAccNum())
-        self.bankBalance = self.bankMonetaryCollection["Bank Balance:"]
-        self.mintTotal = self.bankMonetaryCollection["Mint Total:"]
-        self.burnTotal = self.bankMonetaryCollection["Burn Total:"]
-        self.initialDepositTotal = self.bankMonetaryCollection["Initial Deposit Total:"]
-        self.loanTotal = self.bankMonetaryCollection["Loan Total:"]
+        self.bankBalance = self.bankMonetaryCollection["Bank Balance"]
+        self.mintTotal = self.bankMonetaryCollection["Mint Total"]
+        self.burnTotal = self.bankMonetaryCollection["Burn Total"]
+        self.initialDepositTotal = self.bankMonetaryCollection["Initial Deposit Total"]
+        self.loanTotal = self.bankMonetaryCollection["Loan Total"]
         self.mintCount = 5
      
     def addMoney(self):
@@ -33,9 +33,10 @@ class bankSystem:
                 self.mintCount = self.mintCount - 1
                 self.mintTotal = self.mintTotal + addMoney
                 self.bankBalance = self.bankBalance + addMoney
-                self.bankMonetaryCollection["Mint Total:"] = self.mintTotal
-                self.bankMonetaryCollection["Bank Balance:"] = self.bankBalance
+                self.bankMonetaryCollection["Mint Total"] = self.mintTotal
+                self.bankMonetaryCollection["Bank Balance"] = self.bankBalance
                 
+                print(f"\nSuccessfully minted ₱{addMoney}! ") 
                 print(f"The mint total is ₱{self.mintTotal}") 
                 print(f"The current balance of bank is ₱{self.bankBalance}") 
                 
@@ -60,9 +61,10 @@ class bankSystem:
                 
                 self.burnTotal = self.burnTotal + burnMoney
                 self.bankBalance = self.bankBalance - burnMoney
-                self.bankMonetaryCollection["Burn Total:"] = self.burnTotal
-                self.bankMonetaryCollection["Bank Balance:"] = self.bankBalance
+                self.bankMonetaryCollection["Burn Total"] = self.burnTotal
+                self.bankMonetaryCollection["Bank Balance"] = self.bankBalance
                 
+                print(f"\nSuccessfully burned ₱{burnMoney}! ")
                 print(f"The burn total is ₱{self.burnTotal}") 
                 print(f"The current balance is ₱{self.bankBalance}") 
                 
@@ -124,23 +126,23 @@ class bankSystem:
                             
                 elif choiceVerify == 1:
                     self.customerDatabase[self.customerID] = {}
-                    self.customerDatabase[self.customerID]["First Name:"] =  customerObj.firstName
-                    self.customerDatabase[self.customerID]["Last Name:"] = customerObj.lastName
-                    self.customerDatabase[self.customerID]["Age:"] = customerObj.age
-                    self.customerDatabase[self.customerID]["Address:"] = customerObj.address
-                    self.customerDatabase[self.customerID]["Account Number:"] = customerObj.accountNumber
-                    self.customerDatabase[self.customerID]["Pin:"] = customerObj.pin
-                    self.customerDatabase[self.customerID]["Username:"] = customerObj.username
-                    self.customerDatabase[self.customerID]["Password:"] = customerObj.password
-                    self.customerDatabase[self.customerID]["Balance:"] = customerObj.balance
-                    self.customerDatabase[self.customerID]["Credit Level:"] = customerObj.creditLevelofCustomer
-                    self.customerDatabase[self.customerID]["Loan Limit:"] = customerObj.loanLimitAcc
-                    self.customerDatabase[self.customerID]["Loan:"] = customerObj.loan
+                    self.customerDatabase[self.customerID]["First Name"] =  customerObj.firstName
+                    self.customerDatabase[self.customerID]["Last Name"] = customerObj.lastName
+                    self.customerDatabase[self.customerID]["Age"] = customerObj.age
+                    self.customerDatabase[self.customerID]["Address"] = customerObj.address
+                    self.customerDatabase[self.customerID]["Account Number"] = customerObj.accountNumber
+                    self.customerDatabase[self.customerID]["Pin"] = customerObj.pin
+                    self.customerDatabase[self.customerID]["Username"] = customerObj.username
+                    self.customerDatabase[self.customerID]["Password"] = customerObj.password
+                    self.customerDatabase[self.customerID]["Balance"] = customerObj.balance
+                    self.customerDatabase[self.customerID]["Credit Level"] = customerObj.creditLevelofCustomer
+                    self.customerDatabase[self.customerID]["Loan Limit"] = customerObj.loanLimitAcc
+                    self.customerDatabase[self.customerID]["Loan"] = customerObj.loan
                     
                     self.initialDepositTotal = self.initialDepositTotal + customerObj.balance
                     self.bankBalance = self.bankBalance + customerObj.balance
-                    self.bankMonetaryCollection["Initial Deposit Total:"] = self.initialDepositTotal
-                    self.bankMonetaryCollection["Bank Balance:"] = self.bankBalance
+                    self.bankMonetaryCollection["Initial Deposit Total"] = self.initialDepositTotal
+                    self.bankMonetaryCollection["Bank Balance"] = self.bankBalance
                     print(f"\nThe initial deposit total is ₱{self.initialDepositTotal}") 
                     print(f"The current balance of bank is ₱{self.bankBalance}") 
                     
@@ -172,18 +174,18 @@ class bankSystem:
             if customerExistence == False: return
             
             choiceCustomer = str(choiceCustomer)
-            customerCreditLevel = int(self.customerDatabase[choiceCustomer]["Credit Level:"])
-            customerLoan =  float(self.customerDatabase[choiceCustomer]["Loan:"])
-            customerLoanLimit = float(self.customerDatabase[choiceCustomer]["Loan Limit:"])
+            customerCreditLevel = int(self.customerDatabase[choiceCustomer]["Credit Level"])
+            customerLoan =  float(self.customerDatabase[choiceCustomer]["Loan"])
+            customerLoanLimit = float(self.customerDatabase[choiceCustomer]["Loan Limit"])
             customerLoanInterestRate = self.customerLoanInterestRate(customerCreditLevel)
-            print(f"Customer {choiceCustomer} currently has a loan amounting to ₱{customerLoan}.")
+            print(f"\nCustomer {choiceCustomer} currently has a loan amounting to ₱{customerLoan}.")
             print(f"The loan limit of Customer {choiceCustomer} is ₱{customerLoanLimit}.")
             
             if customerCreditLevel == 1:
                 print(f"Customer {choiceCustomer} cannot loan in the bank because he/she has No Tier.")
                 return
             else:
-                self.bankBalance = self.bankMonetaryCollection["Bank Balance:"]
+                self.bankBalance = self.bankMonetaryCollection["Bank Balance"]
                 print(f"Bank Balance: {self.bankBalance}")
                 loanAmount = float(input("How much money will be loaned: "))
                 if loanAmount > self.bankBalance:
@@ -193,7 +195,7 @@ class bankSystem:
                 elif loanAmount <= 0:
                     print(f"\nYou entered an invalid amount")
                 else:
-                    currentLoan = self.customerDatabase[choiceCustomer]["Loan:"]
+                    currentLoan = self.customerDatabase[choiceCustomer]["Loan"]
                     loanWithInterest = (loanAmount + (customerLoanInterestRate * loanAmount)) + currentLoan
                     if loanWithInterest > customerLoanLimit:
                         print(f"\nThe current loan exceeds the loan limit which is ₱{customerLoanLimit}")
@@ -203,10 +205,10 @@ class bankSystem:
                         print(f"Loan placed: ₱{loanAmount}")
                         print(f"Loan to be payed (with annual interest): ₱{loanWithInterest}")
                         
-                        self.bankMonetaryCollection["Bank Balance:"] = float(self.bankMonetaryCollection["Bank Balance:"] - loanAmount)
-                        self.loanTotal = self.bankMonetaryCollection["Loan Total:"]
-                        self.bankMonetaryCollection["Loan Total:"] = float(self.loanTotal + loanAmount)
-                        self.customerDatabase[choiceCustomer]["Loan:"] = float(loanWithInterest)
+                        self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] - loanAmount)
+                        self.loanTotal = self.bankMonetaryCollection["Loan Total"]
+                        self.bankMonetaryCollection["Loan Total"] = float(self.loanTotal + loanAmount)
+                        self.customerDatabase[choiceCustomer]["Loan"] = float(loanWithInterest)
                         
                         self.addToCustomerJsonFile()
                         self.addToBankMonetaryJsonFile()
@@ -225,7 +227,7 @@ class bankSystem:
             print("\nCLOSE ACCOUNT")
             choiceCustomer = int(input("Enter ID of customer: "))
             customerExistence = self.checkCustomerExistence(choiceCustomer)
-            customerLoan =  float(self.customerDatabase[str(choiceCustomer)]["Loan:"])
+            customerLoan =  float(self.customerDatabase[str(choiceCustomer)]["Loan"])
             if customerExistence == False: return
             
             print("\nCustomer ID:", str(choiceCustomer))
@@ -243,7 +245,7 @@ class bankSystem:
                 print("[2] No")
                 choiceClose = int(input("Enter your choice: "))
                 if choiceClose == 1:
-                    self.bankMonetaryCollection["Bank Balance:"] = float(self.bankMonetaryCollection["Bank Balance:"] - self.customerDatabase[str(choiceCustomer)]["Balance:"])
+                    self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] - self.customerDatabase[str(choiceCustomer)]["Balance"])
                     del self.customerDatabase[str(choiceCustomer)]
                     
                     print(f"\nThe account of Customer {choiceCustomer} is succesfully closed.")
@@ -273,9 +275,9 @@ class bankSystem:
                     choiceCustomer = int(input("Enter ID of customer to be searched: "))
                     customerExistence = self.checkCustomerExistence(choiceCustomer)
                     if customerExistence == False: return
-                    print("\nCustomer ID:", str(choiceCustomer))
+                    print("\nCustomer ID :", str(choiceCustomer))
                     for customerID in self.customerDatabase[str(choiceCustomer)]:
-                        print("   ", customerID, self.customerDatabase[str(choiceCustomer)][customerID])
+                        print("   ", customerID, ":", self.customerDatabase[str(choiceCustomer)][customerID])
                 elif choiceCustomerDatabase == 3:
                     break
                 else:
@@ -290,9 +292,9 @@ class bankSystem:
         print("\nCUSTOMER DATABASE")
         print("--------------------------------------------")
         for CustomerID, CustomerInformation in self.customerDatabase.items():
-            print("Customer ID:", CustomerID)
+            print("\nCustomer ID :", CustomerID)
             for keyInfo in CustomerInformation:
-                print("   ", keyInfo, CustomerInformation[keyInfo]) 
+                print("   ", keyInfo, ":", CustomerInformation[keyInfo]) 
         print("--------------------------------------------")      
          
     def displayBankMonetaryCollection(self):
@@ -313,7 +315,7 @@ class bankSystem:
         try:
             with open("Database/CustomerDatabase.json", "w") as customerDatabaseJSON:
                 orderedDict = collections.OrderedDict(sorted(self.customerDatabase.items()))
-                json.dump(orderedDict, customerDatabaseJSON)
+                json.dump(orderedDict, customerDatabaseJSON, indent = 4)
                 
             customerDatabaseJSON.close()
         except FileNotFoundError as e:
@@ -327,16 +329,16 @@ class bankSystem:
             
             bankMonetaryDatabaseJSON.close()
         except:
-            self.bankMonetaryCollection["Bank Balance:"] = 0.0
-            self.bankMonetaryCollection["Mint Total:"] = 0.0
-            self.bankMonetaryCollection["Burn Total:"] = 0.0
-            self.bankMonetaryCollection["Initial Deposit Total:"] = 0.0
-            self.bankMonetaryCollection["Loan Total:"] = 0.0
+            self.bankMonetaryCollection["Bank Balance"] = 0.0
+            self.bankMonetaryCollection["Mint Total"] = 0.0
+            self.bankMonetaryCollection["Burn Total"] = 0.0
+            self.bankMonetaryCollection["Initial Deposit Total"] = 0.0
+            self.bankMonetaryCollection["Loan Total"] = 0.0
             
     def addToBankMonetaryJsonFile(self):
         try:
             with open("Database/BankMonetaryCollection.json", "w") as bankMonetaryDatabaseJSON:
-                json.dump(self.bankMonetaryCollection, bankMonetaryDatabaseJSON)
+                json.dump(self.bankMonetaryCollection, bankMonetaryDatabaseJSON, indent = 4)
                 
             bankMonetaryDatabaseJSON.close()
             
@@ -364,7 +366,7 @@ class bankSystem:
     def customerNewAccNum(self):
         if "1001" in self.customerDatabase.keys():
             for dictID in self.customerDatabase.keys():
-                currentAccNum = int((self.customerDatabase[dictID]["Account Number:"]))
+                currentAccNum = int((self.customerDatabase[dictID]["Account Number"]))
                 testAccNum = currentAccNum - 1
                 currentID = int(dictID)
                 testID = currentID - 1

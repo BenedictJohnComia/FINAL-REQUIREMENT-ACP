@@ -6,9 +6,9 @@ class atmSystem(bankSystem):
         self.customerJsonToDict()
         self.bankMonetaryJsonToDict()
         self.customerID = customerID
-        self.customerBalance = self.customerDatabase[str(self.customerID)]["Balance:"]
-        self.customerLoan = self.customerDatabase[str(self.customerID)]["Loan:"]
-        self.customerPin = self.customerDatabase[str(self.customerID)]["Pin:"]
+        self.customerBalance = self.customerDatabase[str(self.customerID)]["Balance"]
+        self.customerLoan = self.customerDatabase[str(self.customerID)]["Loan"]
+        self.customerPin = self.customerDatabase[str(self.customerID)]["Pin"]
         self.customerPinCount = 3
         
     def addMoney(self):
@@ -27,8 +27,8 @@ class atmSystem(bankSystem):
                     while True:
                         customerInputPin = int(input("Enter your pin: "))
                         if customerInputPin == self.customerPin:
-                            self.customerDatabase[str(self.customerID)]["Balance:"] = self.customerBalance + depositMoney
-                            self.bankMonetaryCollection["Bank Balance:"] = float(self.bankMonetaryCollection["Bank Balance:"] + depositMoney)
+                            self.customerDatabase[str(self.customerID)]["Balance"] = self.customerBalance + depositMoney
+                            self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] + depositMoney)
                             self.addToCustomerJsonFile()
                             self.addToBankMonetaryJsonFile()
                             print("Deposit Successful!")
@@ -66,8 +66,8 @@ class atmSystem(bankSystem):
                     while True:
                         customerInputPin = int(input("Enter your pin: "))
                         if customerInputPin == self.customerPin:
-                            self.customerDatabase[str(self.customerID)]["Balance:"] = self.customerBalance - withdrawMoney
-                            self.bankMonetaryCollection["Bank Balance:"] = float(self.bankMonetaryCollection["Bank Balance:"] - withdrawMoney)
+                            self.customerDatabase[str(self.customerID)]["Balance"] = self.customerBalance - withdrawMoney
+                            self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] - withdrawMoney)
                             self.addToCustomerJsonFile()
                             self.addToBankMonetaryJsonFile()
                             print("Withdraw Successful!")
@@ -109,8 +109,8 @@ class atmSystem(bankSystem):
                     while True:
                         customerInputPin = int(input("Enter your pin: "))
                         if customerInputPin == self.customerPin:
-                            self.customerDatabase[str(self.customerID)]["Loan:"] = self.customerLoan - payLoanMoney
-                            self.bankMonetaryCollection["Bank Balance:"] = float(self.bankMonetaryCollection["Bank Balance:"] + payLoanMoney)
+                            self.customerDatabase[str(self.customerID)]["Loan"] = self.customerLoan - payLoanMoney
+                            self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] + payLoanMoney)
                             self.addToCustomerJsonFile()
                             self.addToBankMonetaryJsonFile()
                             print("Loan Payment Successful!")

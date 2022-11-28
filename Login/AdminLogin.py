@@ -68,7 +68,7 @@ class adminLogin:
         try:
             with open("Database/AdminDatabase.json", "w") as adminDatabaseJSON:
                 orderedDict = collections.OrderedDict(sorted(self.adminDatabase.items()))
-                json.dump(orderedDict, adminDatabaseJSON)
+                json.dump(orderedDict, adminDatabaseJSON, indent = 4)
                 
             adminDatabaseJSON.close()
         except FileNotFoundError as e:

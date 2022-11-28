@@ -17,8 +17,8 @@ class customerLogin(adminLogin):
                 self.customerID = int(self.getCustomerID(self.accountNumber))
                 if self.customerID == 0: return 0
                 
-                self.customerUsername = self.customerDatabase[str(self.customerID)]["Username:"]
-                self.customerPassword = self.customerDatabase[str(self.customerID)]["Password:"]
+                self.customerUsername = self.customerDatabase[str(self.customerID)]["Username"]
+                self.customerPassword = self.customerDatabase[str(self.customerID)]["Password"]
 
                 while True:
                     customerLoginUsername = str(input("Enter your username: "))
