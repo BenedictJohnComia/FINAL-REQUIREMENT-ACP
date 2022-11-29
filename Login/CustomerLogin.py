@@ -5,6 +5,8 @@ import collections
 class customerLogin(adminLogin):
     def __init__(self):
         self.customerDatabase = collections.defaultdict(dict)
+        self.customerFirstName = ""
+        self.customerLastName = ""
         self.customerUsername = ""
         self.customerPassword = ""
         self.loginCount = 3
@@ -19,14 +21,15 @@ class customerLogin(adminLogin):
                 
                 self.customerUsername = self.customerDatabase[str(self.customerID)]["Username"]
                 self.customerPassword = self.customerDatabase[str(self.customerID)]["Password"]
-
+                self.customerFirstName = self.customerDatabase[str(self.customerID)]["First Name"]
+                self.customerLastName = self.customerDatabase[str(self.customerID)]["Last Name"]
                 while True:
                     customerLoginUsername = str(input("Enter your username: "))
                     customerLoginPassword = str(input("Enter your password: "))
                     
                     if self.customerUsername == customerLoginUsername and self.customerPassword == customerLoginPassword:
                         print("\nLogin Successful!")
-                        print(f"Welcome Customer {self.customerID}!")
+                        print(f"Welcome {self.customerFirstName} {self.customerLastName}!")
                         return 2
                     else:
                         pinCount = self.pinCount()
