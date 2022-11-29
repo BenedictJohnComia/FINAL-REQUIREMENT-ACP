@@ -31,7 +31,7 @@ class atmSystem(bankSystem):
                             self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] + depositMoney)
                             self.addToCustomerJsonFile()
                             self.addToBankMonetaryJsonFile()
-                            print("Deposit Successful!")
+                            print("\nDeposit Successful!")
                             return
                         else:
                             pinCount = self.pinCount()
@@ -70,7 +70,7 @@ class atmSystem(bankSystem):
                             self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] - withdrawMoney)
                             self.addToCustomerJsonFile()
                             self.addToBankMonetaryJsonFile()
-                            print("Withdraw Successful!")
+                            print("\nWithdraw Successful!")
                             return
                         else:
                             pinCount = self.pinCount()
@@ -113,7 +113,7 @@ class atmSystem(bankSystem):
                             self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] + payLoanMoney)
                             self.addToCustomerJsonFile()
                             self.addToBankMonetaryJsonFile()
-                            print("Loan Payment Successful!")
+                            print("\nLoan Payment Successful!")
                             return
                         else:
                             pinCount = self.pinCount()

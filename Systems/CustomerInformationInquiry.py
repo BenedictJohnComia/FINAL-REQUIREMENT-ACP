@@ -5,6 +5,7 @@ class customerInfo:
         self.firstName = str(input("Enter first name: "))
         self.lastName = str(input("Enter last name: "))
         self.age = int(input("Enter age: "))
+        self.sexualIdentity = str(input("Enter sexual identity: "))
         self.address = str(input("Enter address: "))
         self.pin = int(input("Enter pin: "))
         self.username = input("Enter username: ")

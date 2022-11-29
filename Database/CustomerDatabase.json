@@ -3,6 +3,7 @@
         "First Name": "Benedict",
         "Last Name": "Comia",
         "Age": 18,
+        "Sexual Identity": "Male",
         "Address": "Tulo",
         "Account Number": 69347501,
         "Pin": 6016,
@@ -17,6 +18,7 @@
         "First Name": "Grant",
         "Last Name": "Obiedo",
         "Age": 35,
+        "Sexual Identity": "Male",
         "Address": "Mabini",
         "Account Number": 69347502,
         "Pin": 6969,
@@ -31,6 +33,7 @@
         "First Name": "Kris",
         "Last Name": "Dimaapi",
         "Age": 43,
+        "Sexual Identity": "Male",
         "Address": "San Pascual",
         "Account Number": 69347503,
         "Pin": 5050,
@@ -40,5 +43,20 @@
         "Credit Level": 3,
         "Loan Limit": 10000.0,
         "Loan": 3675.0
+    },
+    "1004": {
+        "First Name": "Danica",
+        "Last Name": "Dulay",
+        "Age": 18,
+        "Sexual Identity": "Female",
+        "Address": "Cabanatuan Nueva Ecija",
+        "Account Number": 69347504,
+        "Pin": 505,
+        "Username": "danica",
+        "Password": "dulay",
+        "Balance": 50000.0,
+        "Credit Level": 4,
+        "Loan Limit": 50000.0,
+        "Loan": 0
     }
 }

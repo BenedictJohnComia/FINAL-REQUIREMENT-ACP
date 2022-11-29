@@ -129,6 +129,7 @@ class bankSystem:
                     self.customerDatabase[self.customerID]["First Name"] =  customerObj.firstName
                     self.customerDatabase[self.customerID]["Last Name"] = customerObj.lastName
                     self.customerDatabase[self.customerID]["Age"] = customerObj.age
+                    self.customerDatabase[self.customerID]["Sexual Identity"] = customerObj.sexualIdentity
                     self.customerDatabase[self.customerID]["Address"] = customerObj.address
                     self.customerDatabase[self.customerID]["Account Number"] = customerObj.accountNumber
                     self.customerDatabase[self.customerID]["Pin"] = customerObj.pin
@@ -230,9 +231,9 @@ class bankSystem:
             customerLoan =  float(self.customerDatabase[str(choiceCustomer)]["Loan"])
             if customerExistence == False: return
             
-            print("\nCustomer ID:", str(choiceCustomer))
+            print("\nCustomer ID :", str(choiceCustomer))
             for customerID in self.customerDatabase[str(choiceCustomer)]:
-                print("   ", customerID, self.customerDatabase[str(choiceCustomer)][customerID])
+                print("   ", customerID, ":", self.customerDatabase[str(choiceCustomer)][customerID])
             
             if customerLoan > 0.0:
                 print(f"\nCustomer {choiceCustomer} currently has a loan amounting to ₱{customerLoan}.")
