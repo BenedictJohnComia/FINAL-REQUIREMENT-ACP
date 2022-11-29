@@ -1,6 +1,7 @@
 from Login.AdminLogin import adminLogin
 import json
 import collections
+import pwinput
 
 class customerLogin(adminLogin):
     def __init__(self):
@@ -25,8 +26,7 @@ class customerLogin(adminLogin):
                 self.customerLastName = self.customerDatabase[str(self.customerID)]["Last Name"]
                 while True:
                     customerLoginUsername = str(input("Enter your username: "))
-                    customerLoginPassword = str(input("Enter your password: "))
-                    
+                    customerLoginPassword = str(pwinput.pwinput(prompt = "Enter your password: ", mask = "*"))
                     if self.customerUsername == customerLoginUsername and self.customerPassword == customerLoginPassword:
                         print("\nLogin Successful!")
                         print(f"Welcome {self.customerFirstName} {self.customerLastName}!")

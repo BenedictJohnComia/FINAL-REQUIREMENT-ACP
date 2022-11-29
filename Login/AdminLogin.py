@@ -1,5 +1,6 @@
 import json
 import collections
+import pwinput
 
 class adminLogin:
     def __init__(self):
@@ -22,7 +23,7 @@ class adminLogin:
         
         while True:
             adminLoginUsername = str(input("Enter your username: "))
-            adminLoginPassword = str(input("Enter your password: "))
+            adminLoginPassword = str(pwinput.pwinput(prompt = "Enter your password: ", mask = "*"))
             if self.adminUsername == adminLoginUsername and self.adminPassword == adminLoginPassword:
                 print("\nLogin Successful!")
                 print(f"Welcome Admin {adminLoginID}!")

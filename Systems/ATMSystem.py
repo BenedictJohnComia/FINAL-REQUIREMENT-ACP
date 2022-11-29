@@ -1,5 +1,6 @@
 from Systems.BankSystem import bankSystem
 from MainMenuMethods import MainMenuYesOrNo
+import pwinput
 
 class atmSystem(bankSystem):
     def __init__(self, customerID):
@@ -25,7 +26,7 @@ class atmSystem(bankSystem):
                 choiceDeposit = int(input("Enter choice: "))
                 if choiceDeposit == 1:
                     while True:
-                        customerInputPin = int(input("Enter your pin: "))
+                        customerInputPin = int(pwinput.pwinput(prompt = "Enter your pin: ", mask = "*"))
                         if customerInputPin == self.customerPin:
                             self.customerDatabase[str(self.customerID)]["Balance"] = self.customerBalance + depositMoney
                             self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] + depositMoney)
@@ -64,7 +65,7 @@ class atmSystem(bankSystem):
                 choiceDeposit = int(input("Enter choice: "))
                 if choiceDeposit == 1:
                     while True:
-                        customerInputPin = int(input("Enter your pin: "))
+                        customerInputPin = int(pwinput.pwinput(prompt = "Enter your pin: ", mask = "*"))
                         if customerInputPin == self.customerPin:
                             self.customerDatabase[str(self.customerID)]["Balance"] = self.customerBalance - withdrawMoney
                             self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] - withdrawMoney)
@@ -107,7 +108,7 @@ class atmSystem(bankSystem):
                 choiceDeposit = int(input("Enter choice: "))
                 if choiceDeposit == 1:
                     while True:
-                        customerInputPin = int(input("Enter your pin: "))
+                        customerInputPin = int(pwinput.pwinput(prompt = "Enter your pin: ", mask = "*"))
                         if customerInputPin == self.customerPin:
                             self.customerDatabase[str(self.customerID)]["Loan"] = self.customerLoan - payLoanMoney
                             self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] + payLoanMoney)
