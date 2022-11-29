@@ -7,10 +7,7 @@ class bankSystem:
     def __init__(self):
         self.customerDatabase = collections.defaultdict(dict)
         self.bankMonetaryCollection = {}
-        self.customerJsonToDict()
         self.bankMonetaryJsonToDict()
-        self.customerID = int(self.customerNewID()) 
-        self.accountNumber = int(self.customerNewAccNum())
         self.bankBalance = self.bankMonetaryCollection["Bank Balance"]
         self.mintTotal = self.bankMonetaryCollection["Mint Total"]
         self.burnTotal = self.bankMonetaryCollection["Burn Total"]
@@ -267,6 +264,7 @@ class bankSystem:
         
     def accessCustomerDatabase(self):
         try:
+            self.customerJsonToDict()
             while True:
                 MainMenuCustomerDatabase()
                 choiceCustomerDatabase = int(input("Enter your choice: "))
@@ -301,7 +299,7 @@ class bankSystem:
     def displayBankMonetaryCollection(self):
         print("\nBANK MONETARY FUNDS")
         for id, amount in self.bankMonetaryCollection.items():
-            print(id, "₱", amount) 
+            print(id, ": ₱", amount) 
         
     def customerJsonToDict(self):
         try:

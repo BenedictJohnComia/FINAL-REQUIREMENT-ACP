@@ -9,7 +9,7 @@
         "Pin": 6016,
         "Username": "bene",
         "Password": "comia",
-        "Balance": 7000.0,
+        "Balance": 5000.0,
         "Credit Level": 4,
         "Loan Limit": 50000.0,
         "Loan": 0
@@ -17,16 +17,16 @@
     "1002": {
         "First Name": "Grant",
         "Last Name": "Obiedo",
-        "Age": 35,
+        "Age": 45,
         "Sexual Identity": "Male",
-        "Address": "Mabini",
+        "Address": "Mabini Batangas",
         "Account Number": 69347502,
         "Pin": 6969,
         "Username": "grant",
         "Password": "obiedo",
-        "Balance": 40000.0,
-        "Credit Level": 2,
-        "Loan Limit": 5000.0,
+        "Balance": 7000.0,
+        "Credit Level": 4,
+        "Loan Limit": 50000.0,
         "Loan": 0
     },
     "1003": {
@@ -55,6 +55,21 @@
         "Username": "danica",
         "Password": "dulay",
         "Balance": 50000.0,
+        "Credit Level": 4,
+        "Loan Limit": 50000.0,
+        "Loan": 0
+    },
+    "1006": {
+        "First Name": "Legion",
+        "Last Name": "Mendoza",
+        "Age": 56,
+        "Sexual Identity": "Female",
+        "Address": "Caloocan",
+        "Account Number": 69347506,
+        "Pin": 4710,
+        "Username": "legion",
+        "Password": "mendoza",
+        "Balance": 5000.0,
         "Credit Level": 4,
         "Loan Limit": 50000.0,
         "Loan": 0
