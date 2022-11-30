@@ -95,11 +95,12 @@ class atmSystem(bankSystem):
             if self.customerLoan == 0:
                 print("You have no loan to pay.")
                 return
-           
+
+            print(f"You currently have a loan ammounting to {self.customerLoan}.")
             print("How much loan do you want to pay?")
             payLoanMoney = float(input("Enter amount: "))
             if  payLoanMoney > self.customerLoan:
-                print(f"\nYou are paying an amount that exceeds your loan which is {self.customerLoan}")
+                print(f"\nYou are paying an amount that exceeds your loan which is {self.customerLoan}. Please try again.")
                 return
             
             while True:

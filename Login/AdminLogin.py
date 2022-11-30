@@ -14,7 +14,7 @@ class adminLogin:
     def login(self):
         self.adminJsonToDict()
         
-        adminLoginID = int(input("Enter your Admin ID: "))
+        adminLoginID = int(input("\nEnter your Admin ID: "))
         adminExistence = self.checkExistence(adminLoginID)
         if adminExistence == False: return
         
@@ -44,7 +44,7 @@ class adminLogin:
         self.adminDatabase[self.adminID]["Username"] = adminRegisterUsername
         self.adminDatabase[self.adminID]["Password"] = adminRegisterPassword
         
-        print(f"\nRegister successful for Admin {self.adminID}")
+        print(f"\nRegister successful for Admin {self.adminID}!")
         
         self.addToAdminJsonFile()
         

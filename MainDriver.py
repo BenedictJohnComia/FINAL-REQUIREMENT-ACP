@@ -104,4 +104,4 @@ while True:
                 print ("You entered a value that is not a number. Please try again.")
 
 
-print("\nThank you for using the Granny's banking System. Have a nice day!")
+print("\nThank you for using the Granny's Banking System. Have a nice day!")

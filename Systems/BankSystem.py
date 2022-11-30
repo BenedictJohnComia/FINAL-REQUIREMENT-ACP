@@ -158,10 +158,10 @@ class bankSystem:
             print ("You entered a value that is not an integer. Please try again.")
         except TypeError as e:
             print("\nThe", e)
-            print ("An invalid input caused this error")
+            print ("An invalid input caused this error.")
         except AttributeError as e:
             print("\nThe", e)
-            print ("An invalid input caused this error")
+            print ("An invalid input caused this error.")
             
     def loanAssesment(self):
         try:
@@ -182,7 +182,7 @@ class bankSystem:
             print(f"The loan limit of Customer {choiceCustomer} is ₱{customerLoanLimit}.")
             
             if customerCreditLevel == 1:
-                print(f"Customer {choiceCustomer} cannot loan in the bank because he/she has No Tier.")
+                print(f"\nCustomer {choiceCustomer} cannot loan in the bank because he/she has No Tier.")
                 return
             else:
                 self.bankBalance = self.bankMonetaryCollection["Bank Balance"]
@@ -228,8 +228,8 @@ class bankSystem:
             choiceCustomer = int(input("Enter ID of customer: "))
             customerExistence = self.checkCustomerExistence(choiceCustomer)
             if customerExistence == False: return
-            customerLoan =  float(self.customerDatabase[str(choiceCustomer)]["Loan"])
             
+            customerLoan =  float(self.customerDatabase[str(choiceCustomer)]["Loan"])
             print("\nCustomer ID :", str(choiceCustomer))
             for customerID in self.customerDatabase[str(choiceCustomer)]:
                 print("   ", customerID, ":", self.customerDatabase[str(choiceCustomer)][customerID])
@@ -342,7 +342,6 @@ class bankSystem:
                 json.dump(self.bankMonetaryCollection, bankMonetaryDatabaseJSON, indent = 4)
                 
             bankMonetaryDatabaseJSON.close()
-            
         except FileNotFoundError as e:
             print(e)
             print("File not found.")
@@ -393,8 +392,9 @@ class bankSystem:
     
     def initialDepositAcc(self):
        while True:
-            initialDeposit = float(input("Enter your initial deposit: "))
-            if initialDeposit <= 0 : 
+            print("\nThe minimum initial deposit is ₱2000.")
+            initialDeposit = float(input("Enter initial deposit: "))
+            if initialDeposit <= 2000 : 
                 print("\nInvalid Input. Please try again")
             else:
                 return initialDeposit

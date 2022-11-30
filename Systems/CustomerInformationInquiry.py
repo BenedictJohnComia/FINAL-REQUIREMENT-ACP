@@ -7,7 +7,7 @@ class customerInfo:
         self.age = int(input("Enter age: "))
         self.sex = str(self.sexualIdentity())
         self.address = str(input("Enter address: "))
-        self.pin = int(input("Enter pin: "))
+        self.pin = int(self.pinOfCustomer())
         self.username = input("Enter username: ")
         self.password = input("Enter password: ")
         self.balance = 0.0
@@ -38,7 +38,6 @@ class customerInfo:
             elif creditScore >= 75 and creditScore <= 100:
                 return 4
             else:
-                print("Invalid Input. Please try again")
                 break
             
     def creditTierTest(self, creditLevelTest = 0):
@@ -52,10 +51,17 @@ class customerInfo:
     def sexualIdentity(self):
         sexualIdentity = {1: "Male", 2: "Female"}
         while True:
-            print("Sex:\n   [1] - Male\n   [2] - Female")
+            print("\nSex:\n   [1] - Male\n   [2] - Female")
             sex = int(input("Enter your choice: "))
             if sex == 1 or sex == 2:
                 return sexualIdentity.get(sex)
             else:
-                print("\nInvalid Input. Please try again.\n")
-        
+                print("\nInvalid Input. Please try again.")
+    
+    def pinOfCustomer(self):
+        while True:
+            pin = str(input("Enter pin(4 digits): "))
+            if len(pin) != 4:
+                print("\nPin must only have 4 digits. Please try again.\n")
+            else:
+                return pin
