@@ -57,5 +57,5 @@ class customerInfo:
             if sex == 1 or sex == 2:
                 return sexualIdentity.get(sex)
             else:
-                print("\nInvalid Input. Please try again\n")
+                print("\nInvalid Input. Please try again.\n")
         
