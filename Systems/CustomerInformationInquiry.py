@@ -51,7 +51,7 @@ class customerInfo:
     def sexualIdentity(self):
         sexualIdentity = {1: "Male", 2: "Female"}
         while True:
-            print("\nSex:\n   [1] - Male\n   [2] - Female")
+            print("\nSex:\n   [1] Male\n   [2] Female")
             sex = int(input("Enter your choice: "))
             if sex == 1 or sex == 2:
                 return sexualIdentity.get(sex)
