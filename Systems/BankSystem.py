@@ -392,7 +392,7 @@ class bankSystem:
     
     def initialDepositAcc(self):
        while True:
-            print("\nThe minimum initial deposit is ₱2000.")
+            print("\nThe minimum initial deposit is ₱2000.00")
             initialDeposit = float(input("Enter initial deposit: "))
             if initialDeposit <= 2000 : 
                 print("\nInvalid Input. Please try again")
