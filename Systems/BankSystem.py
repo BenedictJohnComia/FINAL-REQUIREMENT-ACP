@@ -99,7 +99,7 @@ class bankSystem:
                             customerObj.lastName = str(input("Enter last name: "))
                             break
                         elif choiceChange == 3:
-                            customerObj. age = int(input("Enter age: "))
+                            customerObj.age = int(input("Enter age: "))
                             break
                         elif choiceChange == 4:
                             customerObj.address = str(input("Enter address: "))
@@ -126,7 +126,7 @@ class bankSystem:
                     self.customerDatabase[self.customerID]["First Name"] =  customerObj.firstName
                     self.customerDatabase[self.customerID]["Last Name"] = customerObj.lastName
                     self.customerDatabase[self.customerID]["Age"] = customerObj.age
-                    self.customerDatabase[self.customerID]["Sexual Identity"] = customerObj.sexualIdentity
+                    self.customerDatabase[self.customerID]["Sexual Identity"] = customerObj.sex
                     self.customerDatabase[self.customerID]["Address"] = customerObj.address
                     self.customerDatabase[self.customerID]["Account Number"] = customerObj.accountNumber
                     self.customerDatabase[self.customerID]["Pin"] = customerObj.pin
@@ -141,6 +141,8 @@ class bankSystem:
                     self.bankBalance = self.bankBalance + customerObj.balance
                     self.bankMonetaryCollection["Initial Deposit Total"] = self.initialDepositTotal
                     self.bankMonetaryCollection["Bank Balance"] = self.bankBalance
+                    
+                    print(f"\nThe account of Customer {self.customerID} is opened succesfully!") 
                     print(f"\nThe initial deposit total is ₱{self.initialDepositTotal}") 
                     print(f"The current balance of bank is ₱{self.bankBalance}") 
                     
@@ -225,8 +227,8 @@ class bankSystem:
             print("\nCLOSE ACCOUNT")
             choiceCustomer = int(input("Enter ID of customer: "))
             customerExistence = self.checkCustomerExistence(choiceCustomer)
-            customerLoan =  float(self.customerDatabase[str(choiceCustomer)]["Loan"])
             if customerExistence == False: return
+            customerLoan =  float(self.customerDatabase[str(choiceCustomer)]["Loan"])
             
             print("\nCustomer ID :", str(choiceCustomer))
             for customerID in self.customerDatabase[str(choiceCustomer)]:

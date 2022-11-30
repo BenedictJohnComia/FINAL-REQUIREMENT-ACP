@@ -5,7 +5,7 @@ class customerInfo:
         self.firstName = str(input("Enter first name: "))
         self.lastName = str(input("Enter last name: "))
         self.age = int(input("Enter age: "))
-        self.sexualIdentity = str(input("Enter sexual identity: "))
+        self.sex = str(self.sexualIdentity())
         self.address = str(input("Enter address: "))
         self.pin = int(input("Enter pin: "))
         self.username = input("Enter username: ")
@@ -19,8 +19,8 @@ class customerInfo:
     def displayInfo(self):
         print("\nPlease verify the following information:")
         print(f"Customer {self.customerID} is {self.firstName} {self.lastName}, {self.age} years old from {self.address}, has initial deposit amounting to ₱{self.balance}.")
-        print(f"The pin code of customer {self.customerID} is {self.pin} that has:")
-        print(f"Account Number : {self.accountNumber}")
+        print(f"Account Number: {self.accountNumber}")
+        print(f"Pin: {self.pin}")
         print(f"Credit Tier: {self.creditTier}")
         print(f"Loan Limit: {self.loanLimitAcc}")
         print(f"Username: {self.username}")
@@ -48,3 +48,14 @@ class customerInfo:
     def loanLimit(self, creditLevelTest = 0):
         loanLimitOfAccount = {1: 0, 2: 5000, 3: 10000, 4: 50000}
         return loanLimitOfAccount.get(creditLevelTest)
+    
+    def sexualIdentity(self):
+        sexualIdentity = {1: "Male", 2: "Female"}
+        while True:
+            print("Sex:\n   [1] - Male\n   [2] - Female")
+            sex = int(input("Enter your choice: "))
+            if sex == 1 or sex == 2:
+                return sexualIdentity.get(sex)
+            else:
+                print("\nInvalid Input. Please try again\n")
+        
