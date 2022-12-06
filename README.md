@@ -31,7 +31,7 @@
 
 # *FEATURES OF THE SYSTEM*
 * This Banking System had features of Object- Oriented Language which have classes, object encapsulation,  inheritance, polymorphism and modularity. 
-* Banking System had error handling feature that can test a block or code for errors or handle the error.
+* Banking System had error handling feature that can test a block for errors or handle the error.
 * This system also includes a JSON package, which can be used to work with JSON data.
 
 # *CONCLUSION*
