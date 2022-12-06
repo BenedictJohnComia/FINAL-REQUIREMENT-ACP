@@ -268,12 +268,13 @@ class bankSystem:
         try:
             self.customerJsonToDict()
             while True:
+                print("\nACCESS CUSTOMER DATABASE")
                 MainMenuCustomerDatabase()
                 choiceCustomerDatabase = int(input("Enter your choice: "))
                 if choiceCustomerDatabase == 1:
                     self.showCustomerDatabase()
                 elif choiceCustomerDatabase == 2:
-                    choiceCustomer = int(input("Enter ID of customer to be searched: "))
+                    choiceCustomer = int(input("\nEnter ID of customer to be searched: "))
                     customerExistence = self.checkCustomerExistence(choiceCustomer)
                     if customerExistence == False: return
                     print("\nCustomer ID :", str(choiceCustomer))

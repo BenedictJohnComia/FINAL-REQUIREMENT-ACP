@@ -41,7 +41,7 @@ def MainMenuVerifyInfo():
     print("[9] Exit")
 
 def MainMenuCustomerDatabase():
-    print("\n[1] Display Customer Database")
+    print("[1] Display Customer Database")
     print("[2] Display Information of a specific Customer by ID")
     print("[3] Exit")
 
