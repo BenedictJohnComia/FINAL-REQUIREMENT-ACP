@@ -1,17 +1,17 @@
 {
     "1001": {
-        "First Name": "Benedict",
+        "First Name": "Benedict John",
         "Last Name": "Comia",
-        "Age": 18,
+        "Age": 34,
         "Sexual Identity": "Male",
-        "Address": "Tulo",
+        "Address": "Tulo Batangas",
         "Account Number": 69347501,
-        "Pin": 6016,
+        "Pin": 1603,
         "Username": "bene",
         "Password": "comia",
-        "Balance": 6000.0,
-        "Credit Level": 4,
-        "Loan Limit": 50000.0,
+        "Balance": 5000.0,
+        "Credit Level": 3,
+        "Loan Limit": 10000.0,
         "Loan": 0
     },
     "1002": {

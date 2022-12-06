@@ -23,7 +23,7 @@ class bankSystem:
             print(f"You have {self.mintCount} mints left.")
             if self.mintCount <= 5 and self.mintCount >= 1:
                 addMoney = float(input("Enter amount to be minted: "))
-                if addMoney < 0 or addMoney > 50000.00:
+                if addMoney < 0 or addMoney >= 50000.00:
                     print("\nInvalid Input. Please try again.")
                     return
                 
