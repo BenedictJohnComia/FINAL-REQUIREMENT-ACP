@@ -1,21 +1,21 @@
 # FINAL-REQUIREMENT-ACP
 **Banking System**
 
-## *A Project Documentation Presented in
+## *A Project Documentation Presented in*
 
-## *Partial Fulfillment for the Requirements of
+## *Partial Fulfillment for the Requirements of*
 
-## *CS - 121 Advanced Computer Programming
+## *CS - 121 Advanced Computer Programming*
 
-**Members:**
+## Members:
 
-*Comia, Benedict John
+*Comia, Benedict John*
 
-*Obiedo, Grant Thomas
+*Obiedo, Grant Thomas*
 
-*Dimaapi, Kris Nathaniel
+*Dimaapi, Kris Nathaniel*
 
-*Ebora, Francis Heaven
+*Ebora, Francis Heaven*
 
 
 # ABOUT THE PROGRAM
