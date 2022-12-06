@@ -33,6 +33,21 @@
 * This Banking System had features of Object- Oriented Language which have classes, object encapsulation,  inheritance, polymorphism and modularity. 
 * Banking System had error handling feature that can test a block for errors or handle the error.
 * This system also includes a JSON package, which can be used to work with JSON data.
+* MainMenuAdmin
+  1. Mint Money
+  2. Burn Money
+  3. Open Account
+  4. Loan Assesment
+  5. Close Account
+  6. Access Customer Database
+  7. Display Bank Monetary Collection
+  8. Exit
+* MainMenuCustomer
+  1. Deposit Money
+  2. Withdraw Money
+  3. Pay Loan
+  4. Check Balance
+  5. Exit
 
 # *CONCLUSION*
 This course assisted us in learning more about the Python programming language. It teaches us about OOP concepts, data structures, and algorithms. We anticipate that it will be easy to create a system as a requirement in the first week, but it will be difficult to complete this system. This coursework is extremely beneficial to us as we learn more about the Python programming language. Furthermore, it aided us in developing distinct different abilities and educated us on a variety of topics that will aid us in our future professional lives.
