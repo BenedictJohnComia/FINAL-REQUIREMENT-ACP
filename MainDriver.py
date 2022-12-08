@@ -1,7 +1,7 @@
-from Menu.MainFile import mainExecute
+from Menu.MainFile import mainFile
 
 def mainFunction():
-    main = mainExecute()
+    main = mainFile
     main.welcomePrompt()
     
 if __name__ == '__main__':
