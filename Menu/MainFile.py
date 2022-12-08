@@ -5,7 +5,7 @@ from Systems.ATMSystem import atmSystem
 from Login.AdminLogin import adminLogin
 from Login.CustomerLogin import customerLogin
 
-class main:
+class mainExecute:
     def __init__(self):
         self.mainBank = bankSystem()
         self.adminLoginObj = adminLogin()

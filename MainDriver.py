@@ -1,8 +1,8 @@
-from Menu.Main import main
+from Menu.MainFile import mainExecute
 
 def mainFunction():
-    mainDriver = main()
-    mainDriver.welcomePrompt()
+    main = mainExecute()
+    main.welcomePrompt()
     
 if __name__ == '__main__':
     mainFunction()
