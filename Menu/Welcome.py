@@ -6,9 +6,9 @@ def Welcome():
     while True:
         try:
             print("\nAre you an admin or a customer?")
-            print("[1] Admin")
-            print("[2] Customer")
-            print("[3] Exit")
+            print("   [1] Admin")
+            print("   [2] Customer")
+            print("   [3] Exit")
             choiceOfUser = int(input("Enter your choice: "))
             if choiceOfUser == 1 or choiceOfUser == 2 :
                 return choiceOfUser

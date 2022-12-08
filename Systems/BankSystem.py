@@ -241,8 +241,8 @@ class bankSystem:
                 
             while True:
                 print(f"\nAre you sure you want to close the account of Customer {choiceCustomer} ?")
-                print("[1] Yes")
-                print("[2] No")
+                print("   [1] Yes")
+                print("   [2] No")
                 choiceClose = int(input("Enter your choice: "))
                 if choiceClose == 1:
                     self.bankMonetaryCollection["Bank Balance"] = float(self.bankMonetaryCollection["Bank Balance"] - self.customerDatabase[str(choiceCustomer)]["Balance"])
