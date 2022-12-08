@@ -1,4 +1,4 @@
-from MainMenuMethods import MainMenuVerifyInfo, MainMenuCustomerDatabase
+from Menu.MainMenuMethods import MainMenuVerifyInfo, MainMenuCustomerDatabase
 from Systems.CustomerInformationInquiry import customerInfo
 import collections
 import json

@@ -1,5 +1,5 @@
 from Systems.BankSystem import bankSystem
-from MainMenuMethods import MainMenuYesOrNo
+from Menu.MainMenuMethods import MainMenuYesOrNo
 import pwinput
 
 class atmSystem(bankSystem):

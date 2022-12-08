@@ -1,4 +1,5 @@
-from MainMenuMethods import MainMenuYesOrNo
+from Menu.MainMenuMethods import MainMenuYesOrNo
+
 def Welcome():
     print("\n--------------Welcome to Granny's Banking System!--------------")
     
@@ -17,6 +18,7 @@ def Welcome():
                     MainMenuYesOrNo()
                     choiceYesNo = int(input("Enter choice: "))
                     if choiceYesNo == 1:
+                        print("\nThank you for using the Granny's Banking System. Have a nice day!")
                         return choiceOfUser
                     elif choiceYesNo == 2:
                         break
