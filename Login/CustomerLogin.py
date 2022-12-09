@@ -39,12 +39,12 @@ class customerLogin(adminLogin):
             print("\nThe program receives an", e)
             print ("You entered a value that is not a number. Please try again.")
             
-    def checkExistence(self, adminTestID = 0):
-        adminTestID = str(adminTestID)
-        if adminTestID in self.adminDatabase.keys():
+    def checkExistence(self, customerTestID = 0):
+        customerTestID = str( customerTestID)
+        if customerTestID in self.customerDatabase.keys():
             return True
         else:
-            print(f"\nAdmin {adminTestID} does not exist!")
+            print(f"\nCustomer {customerTestID} does not exist!")
             return False
     
     def customerJsonToDict(self):
