@@ -97,6 +97,7 @@ class adminLogin:
         self.loginCount = self.loginCount - 1
         print("\nIncorrect Username or Password. Please try again.")
         if self.loginCount == 0:
+            self.loginCount = 3
             print("You reached the max amount of tries. Please try again.")
             return False
         else:
