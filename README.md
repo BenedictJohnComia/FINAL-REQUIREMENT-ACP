@@ -22,7 +22,7 @@ Based on the given rubric for grading, the group assesed the system and it resul
 | Metric  |  4 | 3  | 2  |  1 |
 |---|---|---|---|---|
 | Code Reusability  |   | ✔  |   |   |
-| Maintainability  |   | ✔  |   |   |
+| Maintainability  | ✔  |   |   |   |
 | Scalability  | ✔  |   |   |   |
 | Execution  | ✔  |   |   |   |
 | Originality  | ✔ |   |   |   |
