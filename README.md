@@ -28,7 +28,7 @@ Based on the given rubric for grading, the group assesed the system and it resul
 | Originality  |  | ✔  |   |   |
 | Overall Impression    | ✔  |   |   |
 
-# *ABOUT THE PROGRAM*
+# *ABOUT THE SYSTEM*
 
   The Banking System is a system developed using PYTHON platform. It is a system that will store all the data informations, balance, loans, bank accounts and bank money. This system adopts the idea of the banking feature of BDO, BPI and other banking platform. This system was inspired by database management and object oriented programming. this banking system is console-based, it is much simpler to comprehend and utilize. Talking about the system, it includes all of the fundamental features required in a bank. Our main system is located in the  *Bank Sytem*  and *ATM system.* This Banking System can also store all the data information and bank funds by transferring from python to JSON. 
   
