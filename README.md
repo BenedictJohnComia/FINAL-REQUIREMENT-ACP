@@ -40,3 +40,6 @@
 
 # *CONCLUSION*
 This course assisted us in learning more about the Python programming language. It teaches us about OOP concepts, data structures, and algorithms. We anticipate that it will be easy to create a system as a requirement in the first week, but it will be difficult to complete this system. This coursework is extremely beneficial to us as we learn more about the Python programming language. Furthermore, it aided us in developing distinct different abilities and educated us on a variety of topics that will aid us in our future professional lives.
+
+# *VIDEO PRESENTATION*
+https://youtu.be/X9qHRRiJybM
