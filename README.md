@@ -9,9 +9,9 @@
 
 ## Members:
 
-*Comia, Benedict John*
+*Comia, Benedict John | https://github.com/BenedictJohnComia*
 
-*Obiedo, Grant Thomas*
+*Obiedo, Grant Thomas | *
 
 *Dimaapi, Kris Nathaniel | [@KrisNathanielDimaapi](https://github.com/KrisNathanielDimaapi)*
 
