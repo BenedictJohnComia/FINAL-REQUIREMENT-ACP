@@ -13,7 +13,7 @@
 
 *Obiedo, Grant Thomas*
 
-*Dimaapi, Kris Nathaniel | @KrisNathanielDimaapi*
+*Dimaapi, Kris Nathaniel | [@KrisNathanielDimaapi](https://github.com/KrisNathanielDimaapi)*
 
 *Ebora, Francis Heaven*
 
