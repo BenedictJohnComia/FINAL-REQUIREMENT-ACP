@@ -9,7 +9,7 @@
 
 ## Members:
 
-*Comia, Benedict John | https://github.com/BenedictJohnComia*
+*Comia, Benedict John | [@BenedictJohnComia](https://github.com/BenedictJohnComia)*
 
 *Obiedo, Grant Thomas | *
 
