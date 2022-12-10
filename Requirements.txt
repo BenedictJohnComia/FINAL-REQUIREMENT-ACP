@@ -1,0 +1,7 @@
+1.) pip package
+    - Open Command Prompt.
+    - To install, type --> "py get-pip.py"
+
+2.) pwinput package
+    - Open Command Prompt.
+    - To install, type --> "pip install pwinput"
