@@ -11,11 +11,11 @@
 
 *Comia, Benedict John | [@BenedictJohnComia](https://github.com/BenedictJohnComia)*
 
-*Obiedo, Grant Thomas | *
+*Obiedo, Grant Thomas | [@GrantThomasObiedo](https://github.com/Gurny)*
 
 *Dimaapi, Kris Nathaniel | [@KrisNathanielDimaapi](https://github.com/KrisNathanielDimaapi)*
 
-*Ebora, Francis Heaven*
+*Ebora, Francis Heaven | [@FrancisHeavenEbora](https://github.com/FrancisHeavenEbora)*
 
 # *SELF ASSESSMENT*
 Based on the given rubric for grading, the group assesed the system and it resulted to this:
