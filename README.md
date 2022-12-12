@@ -52,6 +52,7 @@ Based on the given rubric for grading, the group assesed the system and it resul
 This course assisted us in learning more about the Python programming language. It teaches us about OOP concepts, data structures, and algorithms. We anticipate that it will be easy to create a system as a requirement in the first week, but it will be difficult to complete this system. This coursework is extremely beneficial to us as we learn more about the Python programming language. Furthermore, it aided us in developing distinct different abilities and educated us on a variety of topics that will aid us in our future professional lives.
 
 # *UML Diagram*
+https://lucid.app/lucidchart/ffcc6d53-f2d5-4b8a-9b7f-dc8af5deb2c7/edit?viewport_loc=-270%2C-2%2C3246%2C1622%2CHWEp-vi-RSFO&invitationId=inv_15d51a50-a5cf-43bd-bfc4-281bbbec39bb
 ![Granny's Banking System UML](https://user-images.githubusercontent.com/113610705/206849579-861a6dad-000e-428e-9e05-dfca6bf3201d.png)
 
 
